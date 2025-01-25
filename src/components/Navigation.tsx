@@ -33,12 +33,12 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-24 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-28 bg-background/80 backdrop-blur-lg border-b border-border">
       <Link to="/" className="flex items-center">
         <img 
           src="/lovable-uploads/61baa9cf-d4f1-4494-bfbd-d359e010902b.png" 
           alt="LSG Soluciones" 
-          className="h-16 w-auto" // Increased logo size significantly
+          className="h-20 w-auto" // Increased logo size even more
         />
       </Link>
 
