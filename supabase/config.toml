@@ -1,9 +1,5 @@
 project_id = "czqeptowzskqhclplscl"
 
-[api]
-enabled = true
-url = "https://czqeptowzskqhclplscl.supabase.co"
-
 [functions]
 [functions.send-email]
 verify_jwt = false
