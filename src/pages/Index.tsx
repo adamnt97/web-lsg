@@ -37,7 +37,7 @@ const Index = () => {
         <section className="relative overflow-hidden px-6 lg:px-8 py-12 sm:py-16">
           <div className="mx-auto max-w-5xl">
             <SplineScene 
-              scene="https://prod.spline.design/oy6NuJsYuM9WSBrw/scene.splinecode"
+              scene="https://prod.spline.design/6YOZ9G8NVZu9uXvN/scene.splinecode"
               className="w-full h-[400px] md:h-[500px]"
             />
           </div>
