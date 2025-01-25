@@ -45,7 +45,7 @@ function FooterDemo() {
     try {
       const { error } = await supabase
         .from('newsletter_subscriptions')
-        .insert([{ email }])
+        .insert({ email })
 
       if (error) throw error
 
