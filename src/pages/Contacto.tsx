@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { motion } from "framer-motion";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -52,53 +54,65 @@ const Contacto = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="pt-24 pb-32">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-4">Contacto</h1>
-            <p className="text-muted-foreground">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted">Contacto</h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Estamos aquí para ayudarte. Contáctanos y te responderemos lo antes posible.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl"
+          >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Nombre</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Tu nombre" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="tu@email.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="grid md:grid-cols-2 gap-8">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-foreground/80">Nombre</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Tu nombre" className="bg-white/5 border-white/10" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-foreground/80">Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="tu@email.com" className="bg-white/5 border-white/10" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Mensaje</FormLabel>
+                      <FormLabel className="text-foreground/80">Mensaje</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="¿En qué podemos ayudarte?"
-                          className="min-h-[120px]"
+                          className="min-h-[120px] bg-white/5 border-white/10"
                           {...field}
                         />
                       </FormControl>
@@ -118,7 +132,7 @@ const Contacto = () => {
                         />
                       </FormControl>
                       <div className="space-y-1 leading-none">
-                        <FormLabel>
+                        <FormLabel className="text-sm text-foreground/80">
                           Acepto la{" "}
                           <a href="/privacy" className="text-primary hover:underline">
                             política de privacidad
@@ -133,12 +147,16 @@ const Contacto = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full">
-                  Enviar mensaje
-                </Button>
+                <div className="flex justify-center pt-4">
+                  <InteractiveHoverButton 
+                    type="submit"
+                    text="Enviar"
+                    className="w-40"
+                  />
+                </div>
               </form>
             </Form>
-          </div>
+          </motion.div>
         </div>
       </main>
       <Footer />
