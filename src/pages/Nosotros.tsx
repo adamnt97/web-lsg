@@ -22,7 +22,7 @@ const Nosotros = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-24 pb-32"> {/* Added padding bottom to prevent footer overlap */}
+      <main className="pt-24 pb-32">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const Nosotros = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="h-[500px] bg-gradient-to-b from-background to-background/50 rounded-3xl p-8"
           >
-            <WorldMap dots={mapDots} lineColor="#800020" />
+            <WorldMap dots={mapDots} lineColor="#bb0000" />
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">

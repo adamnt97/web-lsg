@@ -19,9 +19,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#800020", // Burgundy color
+        primary: "#bb0000", // Updated Burgundy color
         secondary: "#828179",
-        accent: "#800020", // Matching accent color
+        accent: "#bb0000", // Matching accent color
         background: "#FAFAF8",
         surface: "#fff",
         muted: "#C4C3BB",
