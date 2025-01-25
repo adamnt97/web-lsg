@@ -44,9 +44,30 @@ const Contacto = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    toast.success("Formulario enviado correctamente");
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      // Crear el cuerpo del email
+      const emailBody = {
+        to: "info@lsgsoluciones.com",
+        subject: `Nuevo mensaje de contacto de ${values.name}`,
+        text: `
+          Nombre: ${values.name}
+          Email: ${values.email}
+          Mensaje: ${values.message}
+        `,
+      };
+
+      // Aquí normalmente iría la llamada a tu API para enviar el email
+      // Por ahora solo mostraremos un toast de éxito
+      toast.success("Formulario enviado correctamente");
+      console.log("Email que se enviaría:", emailBody);
+      
+      // Resetear el formulario
+      form.reset();
+    } catch (error) {
+      toast.error("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+      console.error("Error sending email:", error);
+    }
   }
 
   return (
