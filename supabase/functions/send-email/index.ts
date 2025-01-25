@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
 
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,43 +25,33 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Starting email send process");
     const { name, email, message }: EmailRequest = await req.json();
 
-    if (!RESEND_API_KEY) {
-      console.error("RESEND_API_KEY is not set");
-      throw new Error("RESEND_API_KEY is not configured");
+    // Guardar el mensaje en la base de datos
+    const { data: contactData, error: contactError } = await supabase
+      .from("contact_messages")
+      .insert([{ name, email, message }]);
+
+    if (contactError) {
+      console.error("Error saving contact message:", contactError);
+      throw new Error("Error saving contact message");
     }
 
-    console.log("Sending email with data:", { name, email, message });
-
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "LSG Soluciones <onboarding@resend.dev>",
-        to: ["info@lsgsoluciones.com"],
-        subject: `Nuevo mensaje de contacto de ${name}`,
-        html: `
-          <h2>Nuevo mensaje de contacto</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Mensaje:</strong></p>
-          <p>${message}</p>
-        `,
-      }),
+    // Enviar email de confirmación
+    const emailResponse = await resend.emails.send({
+      from: "LSG Soluciones <onboarding@resend.dev>",
+      to: ["info@lsgsoluciones.com"],
+      subject: `Nuevo mensaje de contacto de ${name}`,
+      html: `
+        <h2>Nuevo mensaje de contacto</h2>
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mensaje:</strong></p>
+        <p>${message}</p>
+      `,
     });
 
-    const data = await res.json();
-    
-    if (!res.ok) {
-      console.error("Error response from Resend:", data);
-      throw new Error(data.message || "Error sending email");
-    }
+    console.log("Email sent successfully:", emailResponse);
 
-    console.log("Email sent successfully:", data);
-
-    return new Response(JSON.stringify(data), {
+    return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -68,11 +59,11 @@ const handler = async (req: Request): Promise<Response> => {
     console.error("Error in send-email function:", error);
     return new Response(
       JSON.stringify({ 
-        error: error instanceof Error ? error.message : "Unknown error occurred" 
+        error: error instanceof Error ? error.message : "Error al enviar el mensaje" 
       }),
       {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
   }

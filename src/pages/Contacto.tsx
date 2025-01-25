@@ -56,13 +56,15 @@ const Contacto = () => {
       });
 
       if (error) {
-        throw error;
+        console.error("Error sending email:", error);
+        toast.error("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+        return;
       }
 
       toast.success("Mensaje enviado correctamente");
       form.reset();
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error in form submission:", error);
       toast.error("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
     }
   }
