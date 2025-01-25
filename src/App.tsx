@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Particles } from "@/components/ui/particles";
 import Index from "./pages/Index";
 import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
@@ -19,15 +18,6 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <div className="relative min-h-screen bg-background">
-        <Particles
-          className="fixed inset-0 -z-10 animate-fade-in opacity-70"
-          quantity={200}
-          ease={20}
-          color="#990000"
-          size={1.5}
-          vx={0.3}
-          vy={0.2}
-        />
         <Toaster />
         <Sonner />
         <BrowserRouter>

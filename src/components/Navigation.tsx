@@ -38,7 +38,7 @@ const Navigation = () => {
         <img 
           src="/lovable-uploads/07511f4c-f68f-46d6-8b21-2234aa7cd164.png" 
           alt="LSG Soluciones" 
-          className="h-16 w-auto"
+          className="h-12 w-auto"
         />
       </Link>
 
