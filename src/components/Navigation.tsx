@@ -1,11 +1,12 @@
 import { Home, User, Briefcase, FileText, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("Inicio");
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const navItems = [
@@ -16,13 +17,28 @@ const Navigation = () => {
     { name: "Contacto", url: "/contacto", icon: Phone }
   ];
 
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const currentItem = navItems.find(item => item.url === currentPath);
+    setActiveTab(currentItem?.name || navItems[0].name);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-20 bg-background/80 backdrop-blur-lg border-b border-border">
       <Link to="/" className="flex items-center">
         <img 
           src="/lovable-uploads/61baa9cf-d4f1-4494-bfbd-d359e010902b.png" 
           alt="LSG Soluciones" 
-          className="h-8 w-auto"
+          className="h-12 w-auto" // Increased logo size
         />
       </Link>
 
