@@ -33,6 +33,39 @@ export type Database = {
         }
         Relationships: []
       }
+      cookie_preferences: {
+        Row: {
+          accepted_all: boolean | null
+          analytics_cookies: boolean | null
+          created_at: string
+          functional_cookies: boolean | null
+          id: string
+          marketing_cookies: boolean | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          accepted_all?: boolean | null
+          analytics_cookies?: boolean | null
+          created_at?: string
+          functional_cookies?: boolean | null
+          id?: string
+          marketing_cookies?: boolean | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          accepted_all?: boolean | null
+          analytics_cookies?: boolean | null
+          created_at?: string
+          functional_cookies?: boolean | null
+          id?: string
+          marketing_cookies?: boolean | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
