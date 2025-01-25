@@ -17,6 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -46,27 +47,23 @@ const Contacto = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Crear el cuerpo del email
-      const emailBody = {
-        to: "info@lsgsoluciones.com",
-        subject: `Nuevo mensaje de contacto de ${values.name}`,
-        text: `
-          Nombre: ${values.name}
-          Email: ${values.email}
-          Mensaje: ${values.message}
-        `,
-      };
+      const { error } = await supabase.functions.invoke('send-email', {
+        body: {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        },
+      });
 
-      // Aquí normalmente iría la llamada a tu API para enviar el email
-      // Por ahora solo mostraremos un toast de éxito
-      toast.success("Formulario enviado correctamente");
-      console.log("Email que se enviaría:", emailBody);
-      
-      // Resetear el formulario
+      if (error) {
+        throw error;
+      }
+
+      toast.success("Mensaje enviado correctamente");
       form.reset();
     } catch (error) {
-      toast.error("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
       console.error("Error sending email:", error);
+      toast.error("Error al enviar el mensaje. Por favor, inténtalo de nuevo.");
     }
   }
 
