@@ -10,27 +10,26 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Main content with top padding for navigation */}
       <main className="pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl text-center">
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary mb-6">
-              Change the bank account
+              Soluciones Tecnológicas
               <br />
-              <span className="bg-gradient-to-r from-[#9EE755] to-[#CFDD3C] bg-clip-text text-transparent">
-                you use
+              <span className="bg-gradient-to-r from-[#0066CC] to-[#00CC99] bg-clip-text text-transparent">
+                para tu Empresa
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-secondary mb-8">
-              Experience banking reimagined. Simple, secure, and designed for the modern world.
+              Innovación y confianza en cada proyecto. Transformamos ideas en soluciones tecnológicas efectivas.
             </p>
             <div className="flex justify-center gap-4">
               <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
-                Get Started
+                Contáctanos
               </button>
               <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2">
-                Learn More <ArrowRight className="w-4 h-4" />
+                Descubre más <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -49,28 +48,28 @@ const Index = () => {
 
         <section className="py-24 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold text-center mb-16">Features designed for you</h2>
+            <h2 className="text-3xl font-bold text-center mb-16">Nuestros Servicios</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Secure Transactions",
-                  description: "Bank-grade encryption for all your transactions",
-                  icon: "🔒",
+                  title: "Desarrollo de Software",
+                  description: "Soluciones personalizadas para tu negocio",
+                  icon: "💻",
                 },
                 {
-                  title: "Real-time Updates",
-                  description: "Get instant notifications for all account activities",
-                  icon: "⚡",
+                  title: "Consultoría IT",
+                  description: "Asesoramiento experto en tecnología",
+                  icon: "🔍",
                 },
                 {
-                  title: "Smart Savings",
-                  description: "AI-powered insights to help you save more",
-                  icon: "💡",
+                  title: "Infraestructura Cloud",
+                  description: "Servicios cloud escalables y seguros",
+                  icon: "☁️",
                 },
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-2xl bg-background border border-border hover:border-accent transition-colors"
+                  className="p-6 rounded-2xl bg-background border border-border hover:border-accent transition-colors hover:scale-105 transform duration-200"
                 >
                   <div className="text-4xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
@@ -84,20 +83,20 @@ const Index = () => {
         {/* FAQ Section */}
         <section className="py-24 px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-center mb-16">Preguntas Frecuentes</h2>
             <div className="space-y-4">
               {[
                 {
-                  question: "How secure is my data?",
-                  answer: "We use bank-level encryption to protect all your data and transactions.",
+                  question: "¿Qué servicios ofrecen?",
+                  answer: "Ofrecemos desarrollo de software personalizado, consultoría IT y servicios cloud.",
                 },
                 {
-                  question: "What are the fees?",
-                  answer: "We believe in transparent pricing with no hidden fees.",
+                  question: "¿Cómo empezar un proyecto?",
+                  answer: "Contáctanos para agendar una reunión inicial donde evaluaremos tus necesidades.",
                 },
                 {
-                  question: "How do I get started?",
-                  answer: "Download our app and follow the simple registration process.",
+                  question: "¿Cuál es el tiempo de desarrollo?",
+                  answer: "Los tiempos varían según el proyecto, pero nos comprometemos con plazos realistas.",
                 },
               ].map((faq, index) => (
                 <div
@@ -129,12 +128,12 @@ const Index = () => {
         {/* CTA Section */}
         <section className="py-24 bg-primary text-white px-6 lg:px-8">
           <div className="mx-auto max-w-7xl text-center">
-            <h2 className="text-3xl sm:text-5xl font-bold mb-8">Ready to get started?</h2>
+            <h2 className="text-3xl sm:text-5xl font-bold mb-8">¿Listo para empezar?</h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who have already made the switch.
+              Transformemos juntos tu visión en realidad. Contáctanos hoy mismo.
             </p>
             <button className="px-8 py-4 bg-accent text-primary rounded-full font-semibold hover:bg-accent/90 transition-colors">
-              Create Account
+              Iniciar Proyecto
             </button>
           </div>
         </section>
