@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import { useToast } from "@/components/ui/use-toast"
 import {
   Tooltip,
   TooltipContent,
@@ -13,9 +14,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Facebook, Instagram, Linkedin, Moon, Send, Sun } from "lucide-react"
+import { supabase } from "@/integrations/supabase/client"
 
 function FooterDemo() {
   const [isDarkMode, setIsDarkMode] = React.useState(true)
+  const [email, setEmail] = React.useState("")
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const { toast } = useToast()
 
   React.useEffect(() => {
     if (isDarkMode) {
@@ -24,6 +29,42 @@ function FooterDemo() {
       document.documentElement.classList.remove("dark")
     }
   }, [isDarkMode])
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Por favor, ingresa un email válido",
+      })
+      return
+    }
+
+    setIsSubmitting(true)
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([{ email }])
+
+      if (error) throw error
+
+      toast({
+        title: "¡Suscripción exitosa!",
+        description: "Gracias por suscribirte a nuestro newsletter.",
+      })
+      setEmail("")
+    } catch (error) {
+      console.error('Error:', error)
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un error al procesar tu suscripción. Por favor, intenta nuevamente.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
@@ -34,16 +75,20 @@ function FooterDemo() {
             <p className="mb-6 text-muted-foreground">
               Únete a nuestro boletín para recibir las últimas actualizaciones y ofertas exclusivas.
             </p>
-            <form className="relative">
+            <form className="relative" onSubmit={handleSubscribe}>
               <Input
                 type="email"
                 placeholder="Ingresa tu email"
                 className="pr-12 backdrop-blur-sm"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubmitting}
               />
               <Button
                 type="submit"
                 size="icon"
                 className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                disabled={isSubmitting}
               >
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Suscribirse</span>
@@ -74,9 +119,9 @@ function FooterDemo() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contáctanos</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>Calle Innovación 123</p>
-              <p>Ciudad Tecnológica, CT 12345</p>
-              <p>Teléfono: (123) 456-7890</p>
+              <p>Calle Ortega y Gasset, 9</p>
+              <p>Centro de negocios Regus, MU 30009</p>
+              <p>Teléfono: +34 615 956 126</p>
               <p>Email: info@lsgsoluciones.com</p>
             </address>
           </div>
