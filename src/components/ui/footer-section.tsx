@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useToast } from "@/components/ui/use-toast"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Tooltip,
   TooltipContent,
@@ -17,11 +18,22 @@ import { Facebook, Instagram, Linkedin, Moon, Send, Sun } from "lucide-react"
 import { supabase } from "@/integrations/supabase/client"
 
 function FooterDemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true)
+  const [isDarkMode, setIsDarkMode] = React.useState(false)
   const [email, setEmail] = React.useState("")
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [acceptedPrivacy, setAcceptedPrivacy] = React.useState(false)
   const { toast } = useToast()
 
+  // Initialize dark mode from system preference
+  React.useEffect(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    setIsDarkMode(prefersDark)
+    if (prefersDark) {
+      document.documentElement.classList.add("dark")
+    }
+  }, [])
+
+  // Handle dark mode changes
   React.useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark")
@@ -41,6 +53,15 @@ function FooterDemo() {
       return
     }
 
+    if (!acceptedPrivacy) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Debes aceptar la política de privacidad",
+      })
+      return
+    }
+
     setIsSubmitting(true)
     try {
       const { error } = await supabase
@@ -54,6 +75,7 @@ function FooterDemo() {
         description: "Gracias por suscribirte a nuestro newsletter.",
       })
       setEmail("")
+      setAcceptedPrivacy(false)
     } catch (error) {
       console.error('Error:', error)
       toast({
@@ -75,7 +97,7 @@ function FooterDemo() {
             <p className="mb-6 text-muted-foreground">
               Únete a nuestro boletín para recibir las últimas actualizaciones y ofertas exclusivas.
             </p>
-            <form className="relative" onSubmit={handleSubscribe}>
+            <form className="relative space-y-4" onSubmit={handleSubscribe}>
               <Input
                 type="email"
                 placeholder="Ingresa tu email"
@@ -93,6 +115,23 @@ function FooterDemo() {
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Suscribirse</span>
               </Button>
+              <div className="flex items-center space-x-2 mt-2">
+                <Checkbox
+                  id="privacy"
+                  checked={acceptedPrivacy}
+                  onCheckedChange={(checked) => setAcceptedPrivacy(checked as boolean)}
+                  className="data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                />
+                <label
+                  htmlFor="privacy"
+                  className="text-sm text-muted-foreground"
+                >
+                  Acepto la{" "}
+                  <Link to="/privacy" className="text-primary hover:underline">
+                    política de privacidad
+                  </Link>
+                </label>
+              </div>
             </form>
             <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
@@ -136,7 +175,7 @@ function FooterDemo() {
                       <span className="sr-only">Facebook</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
+                  <TooltipContent side="bottom" align="center" className="z-50">
                     <p>Síguenos en Facebook</p>
                   </TooltipContent>
                 </Tooltip>
@@ -149,7 +188,7 @@ function FooterDemo() {
                       <span className="sr-only">Instagram</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
+                  <TooltipContent side="bottom" align="center" className="z-50">
                     <p>Síguenos en Instagram</p>
                   </TooltipContent>
                 </Tooltip>
@@ -162,7 +201,7 @@ function FooterDemo() {
                       <span className="sr-only">LinkedIn</span>
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>
+                  <TooltipContent side="bottom" align="center" className="z-50">
                     <p>Conéctate con nosotros en LinkedIn</p>
                   </TooltipContent>
                 </Tooltip>
