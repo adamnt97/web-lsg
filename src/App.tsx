@@ -20,11 +20,13 @@ const App = () => (
     <TooltipProvider>
       <div className="relative min-h-screen">
         <Particles
-          className="fixed inset-0 -z-10"
-          quantity={100}
-          ease={80}
+          className="fixed inset-0 -z-10 animate-fade-in"
+          quantity={150}
+          ease={30}
           color="#990000"
-          size={0.5}
+          size={1}
+          vx={0.2}
+          vy={0.1}
         />
         <Toaster />
         <Sonner />
