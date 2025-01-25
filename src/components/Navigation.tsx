@@ -1,38 +1,72 @@
-import { Button } from "./ui/button";
+import { Home, User, Briefcase, FileText, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const Navigation = () => {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <img 
-            src="/lovable-uploads/61baa9cf-d4f1-4494-bfbd-d359e010902b.png" 
-            alt="LSG Soluciones" 
-            className="h-8 w-auto"
-          />
-        </Link>
-        
-        <div className="hidden md:flex items-center space-x-8">
-          <Link to="/nosotros" className="text-secondary hover:text-primary transition-colors">
-            Nosotros
-          </Link>
-          <Link to="/servicios" className="text-secondary hover:text-primary transition-colors">
-            Servicios
-          </Link>
-          <Link to="/proyectos" className="text-secondary hover:text-primary transition-colors">
-            Proyectos
-          </Link>
-        </div>
+  const [activeTab, setActiveTab] = useState("Inicio");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="hidden md:inline-flex">
-            Iniciar Sesión
-          </Button>
-          <Button className="text-white">
-            Contáctanos
-          </Button>
-        </div>
+  const navItems = [
+    { name: "Inicio", url: "/", icon: Home },
+    { name: "Nosotros", url: "/nosotros", icon: User },
+    { name: "Servicios", url: "/servicios", icon: Briefcase },
+    { name: "Proyectos", url: "/proyectos", icon: FileText },
+    { name: "Contacto", url: "/contacto", icon: Phone }
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-background/80 backdrop-blur-lg border-b border-border">
+      <Link to="/" className="flex items-center">
+        <img 
+          src="/lovable-uploads/61baa9cf-d4f1-4494-bfbd-d359e010902b.png" 
+          alt="LSG Soluciones" 
+          className="h-8 w-auto"
+        />
+      </Link>
+
+      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeTab === item.name;
+
+          return (
+            <Link
+              key={item.name}
+              to={item.url}
+              onClick={() => setActiveTab(item.name)}
+              className={cn(
+                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                "text-foreground/80 hover:text-primary",
+                isActive && "bg-muted text-primary"
+              )}
+            >
+              <span className="hidden md:inline">{item.name}</span>
+              <span className="md:hidden">
+                <Icon size={18} strokeWidth={2.5} />
+              </span>
+              {isActive && (
+                <motion.div
+                  layoutId="lamp"
+                  className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
+                  initial={false}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30,
+                  }}
+                >
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
+                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
+                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
+                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+                  </div>
+                </motion.div>
+              )}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );
