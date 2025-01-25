@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -15,6 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { motion } from "framer-motion";
@@ -53,7 +52,7 @@ const Contacto = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-24 pb-32">
+      <main className="pt-32 pb-32"> {/* Increased top padding */}
         <div className="max-w-5xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +60,9 @@ const Contacto = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted">Contacto</h1>
+            <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted">
+              Contacto
+            </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Estamos aquí para ayudarte. Contáctanos y te responderemos lo antes posible.
             </p>
@@ -150,7 +151,7 @@ const Contacto = () => {
                 <div className="flex justify-center pt-4">
                   <InteractiveHoverButton 
                     type="submit"
-                    text="Enviar"
+                    text="Enviar mensaje"
                     className="w-40"
                   />
                 </div>
