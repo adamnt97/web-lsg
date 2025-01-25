@@ -15,38 +15,44 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col items-center text-center mb-12">
+              <h1 className="text-6xl font-bold tracking-tight mb-6">Futuro</h1>
+              <p className="text-xl text-muted-foreground max-w-3xl">
+                Construyendo el futuro del retail. Fusionamos innovación en construcción y retail para crear espacios comerciales extraordinarios.
+              </p>
+            </div>
             <SplineSceneBasic />
           </div>
         </section>
 
         <section className="py-24 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold text-center mb-16">Nuestros Servicios</h2>
+            <h2 className="text-4xl font-bold text-center mb-16">Nuestros Servicios</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Desarrollo de Software",
-                  description: "Soluciones personalizadas para tu negocio",
+                  title: "Retail",
+                  description: "Modernizamos grandes superficies de consumo, incorporando soluciones tecnológicas que optimizan la experiencia del cliente.",
+                  icon: "🏪",
+                },
+                {
+                  title: "Construcción especializada",
+                  description: "Aplicamos métodos constructivos de vanguardia, priorizando la calidad y la sostenibilidad.",
+                  icon: "🏗️",
+                },
+                {
+                  title: "Desarrollo de software",
+                  description: "Creamos herramientas digitales personalizadas que permiten a las empresas tomar decisiones basadas en datos.",
                   icon: "💻",
-                },
-                {
-                  title: "Consultoría IT",
-                  description: "Asesoramiento experto en tecnología",
-                  icon: "🔍",
-                },
-                {
-                  title: "Infraestructura Cloud",
-                  description: "Servicios cloud escalables y seguros",
-                  icon: "☁️",
                 },
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-2xl bg-background border border-border hover:border-accent transition-colors hover:scale-105 transform duration-200"
+                  className="p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-lg"
                 >
                   <div className="text-4xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-secondary">{feature.description}</p>
+                  <p className="text-gray-600">{feature.description}</p>
                 </div>
               ))}
             </div>
