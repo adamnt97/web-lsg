@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { WorldMap } from "@/components/ui/WorldMap";
 import { motion } from "framer-motion";
 import { ShoppingCart, Building2, Laptop, Lightbulb, Leaf, Rocket, Award } from "lucide-react";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const Nosotros = () => {
   const mapDots = [
@@ -23,7 +24,7 @@ const Nosotros = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-32 pb-32"> {/* Increased top padding */}
+      <main className="pt-40 pb-32"> {/* Increased top padding for better spacing */}
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -54,17 +55,20 @@ const Nosotros = () => {
               {
                 title: "Retail",
                 icon: ShoppingCart,
-                description: "Transformamos espacios comerciales mediante soluciones tecnológicas innovadoras. Optimizamos la experiencia del cliente con sistemas inteligentes de gestión de flujos, análisis de datos en tiempo real y diseño centrado en el usuario. Nuestras soluciones mejoran la eficiencia operativa y aumentan la satisfacción del cliente."
+                emoji: "🏪",
+                description: "Transformamos espacios comerciales mediante soluciones tecnológicas innovadoras. Optimizamos la experiencia del cliente con sistemas inteligentes de gestión de flujos, análisis de datos en tiempo real y diseño centrado en el usuario. Nuestras soluciones mejoran la eficiencia operativa y aumentan la satisfacción del cliente, creando ambientes comerciales del futuro."
               },
               {
                 title: "Construcción especializada",
                 icon: Building2,
-                description: "Implementamos métodos constructivos de vanguardia que priorizan la sostenibilidad y la eficiencia. Utilizamos materiales innovadores y técnicas de construcción modernas para crear espacios que no solo son funcionales, sino también respetuosos con el medio ambiente y energéticamente eficientes."
+                emoji: "🏗️",
+                description: "Implementamos métodos constructivos de vanguardia que priorizan la sostenibilidad y la eficiencia. Utilizamos materiales innovadores y técnicas de construcción modernas para crear espacios que no solo son funcionales, sino también respetuosos con el medio ambiente y energéticamente eficientes. Nuestro enfoque integra tecnología avanzada en cada fase del proceso constructivo."
               },
               {
                 title: "Desarrollo de software",
                 icon: Laptop,
-                description: "Desarrollamos soluciones digitales personalizadas que permiten a las empresas tomar decisiones basadas en datos. Nuestras aplicaciones integran tecnologías emergentes como IA y machine learning para optimizar procesos y mejorar la experiencia del usuario final."
+                emoji: "💻",
+                description: "Desarrollamos soluciones digitales personalizadas que permiten a las empresas tomar decisiones basadas en datos. Nuestras aplicaciones integran tecnologías emergentes como IA y machine learning para optimizar procesos y mejorar la experiencia del usuario final. Creamos software que impulsa la transformación digital y potencia el crecimiento empresarial."
               }
             ].map((service, index) => {
               const Icon = service.icon;
@@ -76,9 +80,12 @@ const Nosotros = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300"
                 >
-                  <Icon className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
+                  <div className="flex flex-col items-center mb-4">
+                    <span className="text-4xl mb-2">{service.emoji}</span>
+                    <Icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-center">{service.title}</h3>
+                  <p className="text-muted-foreground text-justify">{service.description}</p>
                 </motion.div>
               );
             })}
@@ -92,7 +99,7 @@ const Nosotros = () => {
               className="space-y-6"
             >
               <h2 className="text-3xl font-bold">Misión</h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-justify">
                 Transformar el mercado con soluciones vanguardistas que integren tecnología, sostenibilidad y responsabilidad social en cada etapa del proceso.
               </p>
             </motion.div>
@@ -103,7 +110,7 @@ const Nosotros = () => {
               className="space-y-6"
             >
               <h2 className="text-3xl font-bold">Visión</h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-justify">
                 Ser un referente global en la creación de proyectos revolucionarios, impulsando la convergencia entre retail, construcción y software.
               </p>
             </motion.div>
@@ -116,22 +123,26 @@ const Nosotros = () => {
                 {
                   title: "Innovación",
                   icon: Lightbulb,
-                  description: "Impulsamos la experimentación continua y el desarrollo de soluciones disruptivas que transforman la industria. Nuestro enfoque innovador nos permite anticiparnos a las necesidades del mercado."
+                  emoji: "💡",
+                  description: "Impulsamos la experimentación continua y el desarrollo de soluciones disruptivas que transforman la industria. Nuestro enfoque innovador nos permite anticiparnos a las necesidades del mercado y crear tendencias que definen el futuro del sector."
                 },
                 {
                   title: "Sostenibilidad",
                   icon: Leaf,
-                  description: "Comprometidos con el futuro, implementamos prácticas sostenibles en todos nuestros proyectos. Priorizamos materiales ecológicos y procesos que minimizan el impacto ambiental."
+                  emoji: "🌱",
+                  description: "Comprometidos con el futuro, implementamos prácticas sostenibles en todos nuestros proyectos. Priorizamos materiales ecológicos y procesos que minimizan el impacto ambiental, contribuyendo a un desarrollo más sostenible y responsable."
                 },
                 {
                   title: "Rapidez",
                   icon: Rocket,
-                  description: "Nuestra metodología ágil nos permite responder con velocidad a los cambios del mercado. Optimizamos procesos para entregar soluciones eficientes en tiempo récord."
+                  emoji: "🚀",
+                  description: "Nuestra metodología ágil nos permite responder con velocidad a los cambios del mercado. Optimizamos procesos para entregar soluciones eficientes en tiempo récord, manteniendo siempre los más altos estándares de calidad."
                 },
                 {
                   title: "Calidad",
                   icon: Award,
-                  description: "La excelencia es nuestro estándar. Cada proyecto se desarrolla con atención meticulosa al detalle, garantizando resultados superiores que superan las expectativas."
+                  emoji: "🏆",
+                  description: "La excelencia es nuestro estándar. Cada proyecto se desarrolla con atención meticulosa al detalle, garantizando resultados superiores que superan las expectativas y establecen nuevos referentes en la industria."
                 }
               ].map((value, index) => {
                 const Icon = value.icon;
@@ -143,9 +154,12 @@ const Nosotros = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="p-6 rounded-xl bg-surface border border-border shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <Icon className="w-6 h-6 text-primary mb-3" />
-                    <h3 className="text-lg font-semibold mb-3">{value.title}</h3>
-                    <p className="text-sm text-muted-foreground">{value.description}</p>
+                    <div className="flex flex-col items-center mb-3">
+                      <span className="text-3xl mb-2">{value.emoji}</span>
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-3 text-center">{value.title}</h3>
+                    <p className="text-sm text-muted-foreground text-justify">{value.description}</p>
                   </motion.div>
                 );
               })}
