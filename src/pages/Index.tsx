@@ -2,7 +2,6 @@ import { ArrowRight, Check, ChevronDown, Store, Building2, Code } from "lucide-r
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SplineSceneBasic } from "@/components/ui/code-demo";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Link } from "react-router-dom";
 
@@ -33,14 +32,19 @@ const Index = () => {
       <Navigation />
       
       <main className="pt-16">
-        {/* Hero Section - Reduced size */}
+        {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-12 sm:py-16">
-          <div className="mx-auto max-w-5xl">
-            <SplineSceneBasic />
+          <div className="mx-auto max-w-5xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
+              Soluciones integrales para tu negocio
+            </h1>
+            <p className="text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
+              Transformamos espacios y optimizamos procesos con tecnología de vanguardia
+            </p>
           </div>
         </section>
 
-        {/* Typewriter Section - Reduced spacing */}
+        {/* Typewriter Section */}
         <section className="py-8 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col items-center justify-center">
