@@ -35,9 +35,9 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("Error saving contact message");
     }
 
-    // Enviar email de confirmación
+    // Enviar email de confirmación usando el dominio verificado
     const emailResponse = await resend.emails.send({
-      from: "LSG Soluciones <onboarding@resend.dev>",
+      from: "LSG Soluciones <no-reply@email.lsgsoluciones.com>",
       to: ["info@lsgsoluciones.com"],
       subject: `Nuevo mensaje de contacto de ${name}`,
       html: `
