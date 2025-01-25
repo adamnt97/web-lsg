@@ -2,7 +2,7 @@ import { ArrowRight, Check, ChevronDown, Store, Building2, Code } from "lucide-r
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SplineScene } from "@/components/ui/splite";
+import { SplineSceneBasic } from "@/components/ui/code-demo";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Link } from "react-router-dom";
 
@@ -33,18 +33,14 @@ const Index = () => {
       <Navigation />
       
       <main className="pt-16">
-        {/* Hero Section */}
-
+        {/* Hero Section - Reduced size */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-12 sm:py-16">
           <div className="mx-auto max-w-5xl">
-            <SplineScene 
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-[400px] md:h-[500px]"
-            />
+            <SplineSceneBasic />
           </div>
         </section>
 
-        {/* Typewriter Section */}
+        {/* Typewriter Section - Reduced spacing */}
         <section className="py-8 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col items-center justify-center">
@@ -59,7 +55,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Services Section */}
+        {/* Services Section - Updated icons and justified text */}
         <section className="py-16 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
@@ -94,7 +90,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* FAQ Section - More compact */}
         <section className="py-16 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-2xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
@@ -139,7 +135,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section - Modernized design */}
         <section className="py-16 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-3xl mx-6 mb-16">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">¿Listo para empezar?</h2>
