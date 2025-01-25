@@ -2,6 +2,7 @@ import { ArrowRight, Check, ChevronDown, Store, Building2, Code } from "lucide-r
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SplineScene } from "@/components/ui/splite";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Link } from "react-router-dom";
 
@@ -34,13 +35,11 @@ const Index = () => {
       <main className="pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-12 sm:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-8">
-              Soluciones integrales para tu negocio
-            </h1>
-            <p className="text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-              Transformamos espacios y optimizamos procesos con tecnología de vanguardia
-            </p>
+          <div className="mx-auto max-w-5xl">
+            <SplineScene 
+              scene="https://prod.spline.design/oy6NuJsYuM9WSBrw/scene.splinecode"
+              className="w-full h-[400px] md:h-[500px]"
+            />
           </div>
         </section>
 
@@ -59,7 +58,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Services Section - Updated icons and justified text */}
+        {/* Services Section */}
         <section className="py-16 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
@@ -94,7 +93,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* FAQ Section - More compact */}
+        {/* FAQ Section */}
         <section className="py-16 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-2xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
@@ -139,7 +138,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section - Modernized design */}
+        {/* CTA Section */}
         <section className="py-16 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-3xl mx-6 mb-16">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">¿Listo para empezar?</h2>
