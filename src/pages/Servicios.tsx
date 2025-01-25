@@ -1,6 +1,8 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { Link } from "react-router-dom";
 
 const Servicios = () => {
   const services = [
@@ -93,6 +95,23 @@ const Servicios = () => {
               </motion.div>
             ))}
           </div>
+
+          <section className="py-24 mt-24 bg-primary text-white rounded-3xl overflow-hidden relative">
+            <BlurFade delay={0.25} inView>
+              <div className="max-w-4xl mx-auto text-center px-6">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6">¿Listo para empezar?</h2>
+                <p className="text-xl mb-8">
+                  Transformemos juntos tu visión en realidad. Contáctanos hoy mismo.
+                </p>
+                <Link
+                  to="/contacto"
+                  className="inline-block px-8 py-4 bg-white text-primary rounded-full font-semibold hover:bg-white/90 transition-colors"
+                >
+                  Contactar ahora
+                </Link>
+              </div>
+            </BlurFade>
+          </section>
         </div>
       </main>
       <Footer />
