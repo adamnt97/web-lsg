@@ -3,9 +3,30 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SplineSceneBasic } from "@/components/ui/code-demo";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+
+  const words = [
+    {
+      text: "Innovación",
+    },
+    {
+      text: "en",
+    },
+    {
+      text: "construcción",
+    },
+    {
+      text: "y",
+    },
+    {
+      text: "retail",
+      className: "text-primary dark:text-primary",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -15,13 +36,22 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col items-center text-center mb-12">
-              <h1 className="text-6xl font-bold tracking-tight mb-6">Futuro</h1>
-              <p className="text-xl text-muted-foreground max-w-3xl">
-                Construyendo el futuro del retail. Fusionamos innovación en construcción y retail para crear espacios comerciales extraordinarios.
-              </p>
-            </div>
             <SplineSceneBasic />
+          </div>
+        </section>
+
+        {/* Typewriter Section */}
+        <section className="py-12 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col items-center justify-center">
+              <TypewriterEffectSmooth words={words} />
+              <Link 
+                to="/contacto"
+                className="mt-8 px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-colors"
+              >
+                Contáctanos
+              </Link>
+            </div>
           </div>
         </section>
 
