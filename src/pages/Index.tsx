@@ -2,6 +2,7 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SplineSceneBasic } from "@/components/ui/code-demo";
 
 const Index = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
@@ -13,36 +14,8 @@ const Index = () => {
       <main className="pt-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary mb-6">
-              Soluciones Tecnológicas
-              <br />
-              <span className="bg-gradient-to-r from-[#0066CC] to-[#00CC99] bg-clip-text text-transparent">
-                para tu Empresa
-              </span>
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-secondary mb-8">
-              Innovación y confianza en cada proyecto. Transformamos ideas en soluciones tecnológicas efectivas.
-            </p>
-            <div className="flex justify-center gap-4">
-              <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
-                Contáctanos
-              </button>
-              <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2">
-                Descubre más <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Hero Image */}
-          <div className="relative mt-16">
-            <div className="flex justify-center">
-              <img
-                src="https://antimetal.com/images/hero/preview.png"
-                alt="Hero"
-                className="rounded-3xl shadow-2xl max-w-[90%] w-auto h-auto"
-              />
-            </div>
+          <div className="mx-auto max-w-7xl">
+            <SplineSceneBasic />
           </div>
         </section>
 
