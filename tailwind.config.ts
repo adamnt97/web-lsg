@@ -19,9 +19,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#A93226", // Updated from #bb0000
+        primary: "#990000", // Updated from #A93226
         secondary: "#828179",
-        accent: "#A93226", // Updated from #bb0000
+        accent: "#990000", // Updated from #A93226
         background: "#FAFAF8",
         surface: "#fff",
         muted: "#C4C3BB",

@@ -48,7 +48,7 @@ const Footer = () => {
               © 2019-2025 LSG Group dba. LSG Soluciones
             </p>
             <Link 
-              to="https://linkedin.com" 
+              to="https://www.linkedin.com/company/lsg-soluciones/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-xs text-foreground/60 hover:text-primary transition-colors"
