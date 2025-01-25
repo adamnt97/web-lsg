@@ -18,15 +18,15 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen bg-background">
         <Particles
-          className="fixed inset-0 -z-10 animate-fade-in"
-          quantity={150}
-          ease={30}
+          className="fixed inset-0 -z-10 animate-fade-in opacity-70"
+          quantity={200}
+          ease={20}
           color="#990000"
-          size={1}
-          vx={0.2}
-          vy={0.1}
+          size={1.5}
+          vx={0.3}
+          vy={0.2}
         />
         <Toaster />
         <Sonner />
