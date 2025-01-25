@@ -22,17 +22,17 @@ const Footer = () => {
   return (
     <footer className="bg-background border-t border-border">
       <BlurFade>
-        <div className="max-w-7xl mx-auto py-12 px-6">
-          <div className="grid grid-cols-2 gap-8 md:gap-12 mb-8">
+        <div className="max-w-7xl mx-auto py-8 px-6">
+          <div className="flex justify-between items-start mb-6">
             {footerSections.map((section) => (
-              <div key={section.title} className="space-y-3">
-                <h3 className="text-sm font-medium text-foreground/80">{section.title}</h3>
-                <ul className="space-y-2">
+              <div key={section.title} className="space-y-2">
+                <h3 className="text-xs font-medium text-foreground/80">{section.title}</h3>
+                <ul className="space-y-1">
                   {section.links.map((link) => (
                     <li key={link.name}>
                       <Link
                         to={link.path}
-                        className="text-sm text-foreground/60 hover:text-primary transition-colors"
+                        className="text-xs text-foreground/60 hover:text-primary transition-colors"
                       >
                         {link.name}
                       </Link>
@@ -43,20 +43,18 @@ const Footer = () => {
             ))}
           </div>
           
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border">
-            <p className="text-sm text-foreground/60">
-              © 2019-2025 LSG Group dba. LSG Soluciones (LSG IBERIAN PARTNERS, S.L.)
+          <div className="flex justify-between items-center pt-4 border-t border-border">
+            <p className="text-xs text-foreground/60">
+              © 2019-2025 LSG Group dba. LSG Soluciones
             </p>
-            <div className="flex items-center space-x-4">
-              <Link 
-                to="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sm text-foreground/60 hover:text-primary transition-colors"
-              >
-                LinkedIn
-              </Link>
-            </div>
+            <Link 
+              to="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xs text-foreground/60 hover:text-primary transition-colors"
+            >
+              LinkedIn
+            </Link>
           </div>
         </div>
       </BlurFade>

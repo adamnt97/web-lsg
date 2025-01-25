@@ -2,29 +2,43 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { WorldMap } from "@/components/ui/WorldMap";
 import { motion } from "framer-motion";
-import { ShoppingCart, Building2, Laptop, Lightbulb, Leaf, Rocket, Award } from "lucide-react";
+import { Building2, Laptop, Leaf, Rocket, Award, ShoppingCart } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 const Nosotros = () => {
   const mapDots = [
     {
       start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 40.7128, lng: -74.0060 }, // New York
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: -23.5505, lng: -46.6333 }, // São Paulo
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: -33.8688, lng: 151.2093 }, // Sydney
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 35.6762, lng: 139.6503 }, // Tokyo
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
       end: { lat: 51.5074, lng: -0.1278 }, // London
     },
-    {
-      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
-      end: { lat: 48.8566, lng: 2.3522 }, // Paris
-    },
-    {
-      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
-      end: { lat: 41.9028, lng: 12.4964 }, // Rome
-    },
   ];
+
+  // ... keep existing code (motion.div with title and description)
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-40 pb-32"> {/* Increased top padding for better spacing */}
+      <main className="pt-40 pb-32">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -55,19 +69,16 @@ const Nosotros = () => {
               {
                 title: "Retail",
                 icon: ShoppingCart,
-                emoji: "🏪",
                 description: "Transformamos espacios comerciales mediante soluciones tecnológicas innovadoras. Optimizamos la experiencia del cliente con sistemas inteligentes de gestión de flujos, análisis de datos en tiempo real y diseño centrado en el usuario. Nuestras soluciones mejoran la eficiencia operativa y aumentan la satisfacción del cliente, creando ambientes comerciales del futuro."
               },
               {
                 title: "Construcción especializada",
                 icon: Building2,
-                emoji: "🏗️",
                 description: "Implementamos métodos constructivos de vanguardia que priorizan la sostenibilidad y la eficiencia. Utilizamos materiales innovadores y técnicas de construcción modernas para crear espacios que no solo son funcionales, sino también respetuosos con el medio ambiente y energéticamente eficientes. Nuestro enfoque integra tecnología avanzada en cada fase del proceso constructivo."
               },
               {
                 title: "Desarrollo de software",
                 icon: Laptop,
-                emoji: "💻",
                 description: "Desarrollamos soluciones digitales personalizadas que permiten a las empresas tomar decisiones basadas en datos. Nuestras aplicaciones integran tecnologías emergentes como IA y machine learning para optimizar procesos y mejorar la experiencia del usuario final. Creamos software que impulsa la transformación digital y potencia el crecimiento empresarial."
               }
             ].map((service, index) => {
@@ -80,8 +91,7 @@ const Nosotros = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="flex flex-col items-center mb-4">
-                    <span className="text-4xl mb-2">{service.emoji}</span>
+                  <div className="flex justify-center mb-4">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-center">{service.title}</h3>
@@ -122,26 +132,22 @@ const Nosotros = () => {
               {[
                 {
                   title: "Innovación",
-                  icon: Lightbulb,
-                  emoji: "💡",
+                  icon: Rocket,
                   description: "Impulsamos la experimentación continua y el desarrollo de soluciones disruptivas que transforman la industria. Nuestro enfoque innovador nos permite anticiparnos a las necesidades del mercado y crear tendencias que definen el futuro del sector."
                 },
                 {
                   title: "Sostenibilidad",
                   icon: Leaf,
-                  emoji: "🌱",
                   description: "Comprometidos con el futuro, implementamos prácticas sostenibles en todos nuestros proyectos. Priorizamos materiales ecológicos y procesos que minimizan el impacto ambiental, contribuyendo a un desarrollo más sostenible y responsable."
                 },
                 {
                   title: "Rapidez",
                   icon: Rocket,
-                  emoji: "🚀",
                   description: "Nuestra metodología ágil nos permite responder con velocidad a los cambios del mercado. Optimizamos procesos para entregar soluciones eficientes en tiempo récord, manteniendo siempre los más altos estándares de calidad."
                 },
                 {
                   title: "Calidad",
                   icon: Award,
-                  emoji: "🏆",
                   description: "La excelencia es nuestro estándar. Cada proyecto se desarrolla con atención meticulosa al detalle, garantizando resultados superiores que superan las expectativas y establecen nuevos referentes en la industria."
                 }
               ].map((value, index) => {
@@ -154,8 +160,7 @@ const Nosotros = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="p-6 rounded-xl bg-surface border border-border shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="flex flex-col items-center mb-3">
-                      <span className="text-3xl mb-2">{value.emoji}</span>
+                    <div className="flex justify-center mb-3">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="text-lg font-semibold mb-3 text-center">{value.title}</h3>
