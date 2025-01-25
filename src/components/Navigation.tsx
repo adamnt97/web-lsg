@@ -36,9 +36,9 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-28 bg-background/80 backdrop-blur-lg border-b border-border">
       <Link to="/" className="flex items-center">
         <img 
-          src="/lovable-uploads/61baa9cf-d4f1-4494-bfbd-d359e010902b.png" 
+          src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
           alt="LSG Soluciones" 
-          className="h-20 w-auto" // Increased logo size even more
+          className="h-12 w-auto" // Reduced size from h-20 to h-12
         />
       </Link>
 
