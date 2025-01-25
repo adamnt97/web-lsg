@@ -52,7 +52,7 @@ const Contacto = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-32 pb-32"> {/* Increased top padding */}
+      <main className="pt-32 pb-32">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ const Contacto = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted">
+            <h1 className="text-6xl font-bold mb-4 text-foreground">
               Contacto
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -152,7 +152,7 @@ const Contacto = () => {
                   <InteractiveHoverButton 
                     type="submit"
                     text="Enviar mensaje"
-                    className="w-40"
+                    className="w-48 h-12 text-base font-medium rounded-xl border-2 border-primary/20 bg-primary/5 hover:bg-primary hover:border-primary transition-all duration-300"
                   />
                 </div>
               </form>
