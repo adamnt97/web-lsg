@@ -65,19 +65,31 @@ export function WorldMap({
                 fill="none"
                 stroke={lineColor}
                 strokeWidth="1.5"
-                initial={{
-                  pathLength: 0,
-                  opacity: 0.5,
-                }}
+                initial={{ pathLength: 0 }}
                 animate={{
                   pathLength: [0, 1],
-                  opacity: [0.5, 1],
+                  opacity: [0.2, 1, 0.2],
                 }}
                 transition={{
-                  duration: 2,
-                  delay: i * 0.5,
+                  duration: 3,
                   repeat: Infinity,
-                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.circle
+                cx={startPoint.x}
+                cy={startPoint.y}
+                r="3"
+                fill={lineColor}
+                initial={{ scale: 0 }}
+                animate={{
+                  scale: [0, 1, 0],
+                  x: [startPoint.x, endPoint.x],
+                  y: [startPoint.y, endPoint.y],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
                   ease: "easeInOut",
                 }}
               />
