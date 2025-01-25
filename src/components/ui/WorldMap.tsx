@@ -13,7 +13,7 @@ interface MapProps {
 
 export function WorldMap({
   dots = [],
-  lineColor = "#00CC99",
+  lineColor = "#bb0000",
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
@@ -63,33 +63,27 @@ export function WorldMap({
               <motion.path
                 d={createCurvedPath(startPoint, endPoint)}
                 fill="none"
-                stroke="url(#path-gradient)"
-                strokeWidth="1"
+                stroke={lineColor}
+                strokeWidth="1.5"
                 initial={{
                   pathLength: 0,
+                  opacity: 0.5,
                 }}
                 animate={{
-                  pathLength: 1,
+                  pathLength: [0, 1],
+                  opacity: [0.5, 1],
                 }}
                 transition={{
-                  duration: 1,
-                  delay: 0.5 * i,
-                  ease: "easeOut",
+                  duration: 2,
+                  delay: i * 0.5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
                 }}
-                key={`start-upper-${i}`}
               />
             </g>
           );
         })}
-
-        <defs>
-          <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="white" stopOpacity="0" />
-            <stop offset="5%" stopColor={lineColor} stopOpacity="1" />
-            <stop offset="95%" stopColor={lineColor} stopOpacity="1" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </linearGradient>
-        </defs>
 
         {dots.map((dot, i) => (
           <g key={`points-group-${i}`}>
