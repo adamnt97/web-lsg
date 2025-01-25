@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { v4 as uuidv4 } from 'uuid';
 
 const CookieBanner = () => {
   const [showBanner, setShowBanner] = useState(true);
@@ -13,18 +14,23 @@ const CookieBanner = () => {
     checkCookiePreferences();
   }, []);
 
+  const getBrowserId = () => {
+    let browserId = localStorage.getItem('browser_id');
+    if (!browserId) {
+      browserId = uuidv4();
+      localStorage.setItem('browser_id', browserId);
+    }
+    return browserId;
+  };
+
   const checkCookiePreferences = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        setShowBanner(true);
-        return;
-      }
-
+      const browserId = getBrowserId();
       const { data: preferences } = await supabase
         .from('cookie_preferences')
         .select('*')
-        .single();
+        .eq('browser_id', browserId)
+        .maybeSingle();
 
       if (preferences) {
         setShowBanner(false);
@@ -42,16 +48,11 @@ const CookieBanner = () => {
   ) => {
     setLoading(true);
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        toast.error("Debes iniciar sesión para guardar tus preferencias");
-        return;
-      }
-
+      const browserId = getBrowserId();
       const { error } = await supabase
         .from('cookie_preferences')
         .upsert({
-          user_id: user.id,
+          browser_id: browserId,
           accepted_all: acceptedAll,
           analytics_cookies: analytics,
           marketing_cookies: marketing,

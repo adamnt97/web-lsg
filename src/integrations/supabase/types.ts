@@ -37,32 +37,32 @@ export type Database = {
         Row: {
           accepted_all: boolean | null
           analytics_cookies: boolean | null
+          browser_id: string
           created_at: string
           functional_cookies: boolean | null
           id: string
           marketing_cookies: boolean | null
           updated_at: string
-          user_id: string
         }
         Insert: {
           accepted_all?: boolean | null
           analytics_cookies?: boolean | null
+          browser_id: string
           created_at?: string
           functional_cookies?: boolean | null
           id?: string
           marketing_cookies?: boolean | null
           updated_at?: string
-          user_id: string
         }
         Update: {
           accepted_all?: boolean | null
           analytics_cookies?: boolean | null
+          browser_id?: string
           created_at?: string
           functional_cookies?: boolean | null
           id?: string
           marketing_cookies?: boolean | null
           updated_at?: string
-          user_id?: string
         }
         Relationships: []
       }
