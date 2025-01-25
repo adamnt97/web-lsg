@@ -22,8 +22,7 @@ const Nosotros = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-24">
-        {/* Hero Section */}
+      <main className="pt-24 pb-32"> {/* Added padding bottom to prevent footer overlap */}
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -40,17 +39,15 @@ const Nosotros = () => {
             </p>
           </motion.div>
 
-          {/* Map Section */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="h-[500px] bg-gradient-to-b from-background to-background/50 rounded-3xl p-8"
           >
-            <WorldMap dots={mapDots} />
+            <WorldMap dots={mapDots} lineColor="#800020" />
           </motion.div>
 
-          {/* Services Section */}
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -79,7 +76,6 @@ const Nosotros = () => {
             ))}
           </div>
 
-          {/* Mission & Vision Section */}
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -105,8 +101,7 @@ const Nosotros = () => {
             </motion.div>
           </div>
 
-          {/* Values Section */}
-          <div className="space-y-8">
+          <div className="space-y-8 mb-24"> {/* Added margin bottom to prevent footer overlap */}
             <h2 className="text-3xl font-bold text-center">Nuestros Valores</h2>
             <div className="grid md:grid-cols-4 gap-6">
               {[
@@ -132,7 +127,7 @@ const Nosotros = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 rounded-xl bg-surface border border-border"
+                  className="p-6 rounded-xl bg-surface border border-border shadow-lg"
                 >
                   <h3 className="text-lg font-semibold mb-3">{value.title}</h3>
                   <p className="text-sm text-muted-foreground">{value.description}</p>
