@@ -24,7 +24,7 @@ const Navigation = () => {
           <img 
             src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
             alt="LSG Soluciones" 
-            className="h-8 w-auto" // Reduced size from h-12 to h-8
+            className="h-8 w-auto"
           />
         </Link>
 
