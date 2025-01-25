@@ -8,16 +8,16 @@ import { BlurFade } from "@/components/ui/blur-fade";
 const Nosotros = () => {
   const mapDots = [
     {
-      start: { lat: 40.4168, lng: -3.7038 },
-      end: { lat: 41.3851, lng: 2.1734 },
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 51.5074, lng: -0.1278 }, // London
     },
     {
-      start: { lat: 40.4168, lng: -3.7038 },
-      end: { lat: 37.3891, lng: -5.9845 },
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 48.8566, lng: 2.3522 }, // Paris
     },
     {
-      start: { lat: 41.3851, lng: 2.1734 },
-      end: { lat: 39.4699, lng: -0.3763 },
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 41.9028, lng: 12.4964 }, // Rome
     },
   ];
 

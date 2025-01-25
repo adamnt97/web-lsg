@@ -5,11 +5,17 @@ const Footer = () => {
   const footerSections = [
     {
       title: "Company",
-      links: ["About", "Press"],
+      links: [
+        { name: "About", path: "/nosotros" },
+      ],
     },
     {
       title: "Legal",
-      links: ["Privacy", "Terms", "Cookies"],
+      links: [
+        { name: "Privacy", path: "/privacy" },
+        { name: "Terms", path: "/terms" },
+        { name: "Cookies", path: "/cookies" },
+      ],
     },
   ];
 
@@ -23,12 +29,12 @@ const Footer = () => {
                 <h3 className="text-sm font-medium text-foreground/80">{section.title}</h3>
                 <ul className="space-y-2">
                   {section.links.map((link) => (
-                    <li key={link}>
+                    <li key={link.name}>
                       <Link
-                        to={`/${link.toLowerCase()}`}
+                        to={link.path}
                         className="text-sm text-foreground/60 hover:text-primary transition-colors"
                       >
-                        {link}
+                        {link.name}
                       </Link>
                     </li>
                   ))}
