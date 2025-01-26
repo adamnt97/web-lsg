@@ -1,14 +1,10 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Scale, FileCheck, AlertCircle } from "lucide-react";
-import { motion, useEffect } from "framer-motion";
+import { motion } from "framer-motion";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 const Terms = () => {
-  useEffect(() => {
-    document.title = "Términos y Condiciones | LSG";
-  }, []);
-
   const sections = [
     {
       icon: Scale,
