@@ -1,5 +1,5 @@
 import { ArrowRight, Check, ChevronDown, Store, Building2, Code } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SplineSceneBasic } from "@/components/ui/code-demo";
@@ -28,20 +28,22 @@ const Index = () => {
     },
   ];
 
+  useEffect(() => {
+    document.title = "Inicio | LSG";
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-4"> {/* Reduced from pt-8 to pt-4 to bring the banner closer to navigation */}
-        {/* Hero Section */}
-        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8"> {/* Reduced padding */}
+      <main className="pt-4">
+        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8">
           <div className="mx-auto max-w-5xl">
             <SplineSceneBasic />
           </div>
         </section>
 
-        {/* Typewriter Section */}
-        <section className="py-6 bg-background"> {/* Reduced padding */}
+        <section className="py-6 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col items-center justify-center">
               <TypewriterEffectSmooth words={words} />
@@ -55,7 +57,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Services Section */}
         <section className="py-16 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
@@ -90,7 +91,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* FAQ Section - Updated answers */}
         <section className="py-16 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-2xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
@@ -135,7 +135,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section - Reduced size */}
         <section className="py-8 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-2xl mx-6 mb-16">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-xl sm:text-2xl font-bold mb-3">¿Listo para empezar?</h2>

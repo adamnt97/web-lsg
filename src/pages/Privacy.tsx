@@ -3,8 +3,13 @@ import Footer from "@/components/Footer";
 import { Shield, Lock, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { useEffect } from "react";
 
 const Privacy = () => {
+  useEffect(() => {
+    document.title = "Política de Privacidad | LSG";
+  }, []);
+
   const sections = [
     {
       icon: Shield,

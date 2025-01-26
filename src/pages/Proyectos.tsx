@@ -1,7 +1,12 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
 const Proyectos = () => {
+  useEffect(() => {
+    document.title = "Proyectos | LSG";
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
