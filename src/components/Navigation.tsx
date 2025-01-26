@@ -16,12 +16,15 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="h-20 w-full"> {/* Reducido de h-28 a h-20 */}
-        <Link to="/" className="fixed top-4 left-6 z-[60]"> {/* Ajustado top-6 a top-4 */}
+      {/* Altura reducida de h-28 a h-20 */}
+      <div className="h-20 w-full">
+        {/* Top ajustado de top-6 a top-4 */}
+        <Link to="/" className="fixed top-4 left-6 z-[60]">
           <img 
             src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
             alt="LSG Soluciones" 
-            className="h-10 w-auto" {/* Reducido de h-12 a h-10 */}
+            /* Altura reducida de h-12 a h-10 */
+            className="h-10 w-auto"
           />
         </Link>
         <TubelightNavbar items={menuItems} />
