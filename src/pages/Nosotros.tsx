@@ -1,11 +1,15 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { WorldMap } from "@/components/ui/WorldMap";
 import { motion } from "framer-motion";
 import { Building2, Laptop, Leaf, Rocket, Award, ShoppingCart } from "lucide-react";
-import { BlurFade } from "@/components/ui/blur-fade";
 
 const Nosotros = () => {
+  useEffect(() => {
+    document.title = "Nosotros | LSG";
+  }, []);
+
   const mapDots = [
     {
       start: { lat: 40.4168, lng: -3.7038 }, // Madrid

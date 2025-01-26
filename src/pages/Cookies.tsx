@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Cookie, Settings, Clock } from "lucide-react";
@@ -5,6 +6,10 @@ import { motion } from "framer-motion";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 const Cookies = () => {
+  useEffect(() => {
+    document.title = "Política de Cookies | LSG";
+  }, []);
+
   const sections = [
     {
       icon: Cookie,
