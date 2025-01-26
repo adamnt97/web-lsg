@@ -40,7 +40,7 @@ export function TubelightNavbar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed top-0 left-1/2 -translate-x-1/2 z-50 pt-4", // Reducido de pt-6 a pt-4
+        "fixed top-0 left-1/2 -translate-x-1/2 z-50 pt-2", // Reducido de pt-4 a pt-2
         className,
       )}
     >
@@ -55,7 +55,7 @@ export function TubelightNavbar({ items, className }: NavBarProps) {
               to={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-5 py-2 rounded-full transition-colors", // Reducido px-6 a px-5
+                "relative cursor-pointer text-sm font-semibold px-4 py-1.5 rounded-full transition-colors", // Reducido padding vertical y horizontal
                 "text-foreground/80 hover:text-primary",
                 isActive && "bg-muted text-primary",
               )}
@@ -83,7 +83,7 @@ export function TubelightNavbar({ items, className }: NavBarProps) {
                 </motion.div>
               )}
             </Link>
-          )
+          );
         })}
       </div>
     </div>
