@@ -18,7 +18,6 @@ import { toast } from "sonner";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
-import { useEffect } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -36,10 +35,6 @@ const formSchema = z.object({
 });
 
 const Contacto = () => {
-  useEffect(() => {
-    document.title = "Contacto | LSG";
-  }, []);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
