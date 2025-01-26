@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Cookie, Settings, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { useEffect } from "react";
 
 const Cookies = () => {
   useEffect(() => {

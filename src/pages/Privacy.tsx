@@ -1,3 +1,8 @@
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Shield, Lock, Eye } from "lucide-react";
+import { motion } from "framer-motion";
+import { BlurFade } from "@/components/ui/blur-fade";
 import { useEffect } from "react";
 
 const Privacy = () => {
@@ -5,32 +10,60 @@ const Privacy = () => {
     document.title = "Política de Privacidad | LSG";
   }, []);
 
+  const sections = [
+    {
+      icon: Shield,
+      title: "Protección de Datos",
+      content: "Nos comprometemos a proteger tu privacidad y datos personales siguiendo las normativas GDPR y LOPDGDD."
+    },
+    {
+      icon: Lock,
+      title: "Seguridad",
+      content: "Implementamos medidas de seguridad técnicas y organizativas para proteger tus datos."
+    },
+    {
+      icon: Eye,
+      title: "Transparencia",
+      content: "Mantenemos la transparencia sobre cómo recopilamos y utilizamos tus datos."
+    }
+  ];
+
   return (
-    <div>
-      <h1>Política de Privacidad</h1>
-      <p>
-        Esta es la política de privacidad de LSG Soluciones. Nos comprometemos a proteger su privacidad y a garantizar que su información personal se maneje de manera responsable.
-      </p>
-      <h2>Información que recopilamos</h2>
-      <p>
-        Recopilamos información personal que usted nos proporciona al registrarse en nuestro sitio, realizar un pedido o comunicarse con nosotros. Esta información puede incluir su nombre, dirección de correo electrónico, dirección postal y número de teléfono.
-      </p>
-      <h2>Uso de la información</h2>
-      <p>
-        Utilizamos la información que recopilamos para procesar sus pedidos, mejorar nuestro sitio web y comunicarnos con usted sobre su cuenta y nuestros productos.
-      </p>
-      <h2>Divulgación de la información</h2>
-      <p>
-        No vendemos, intercambiamos ni transferimos su información personal a terceros sin su consentimiento, excepto cuando sea necesario para cumplir con la ley o proteger nuestros derechos.
-      </p>
-      <h2>Seguridad de la información</h2>
-      <p>
-        Implementamos una variedad de medidas de seguridad para mantener la seguridad de su información personal. Sin embargo, ninguna transmisión de datos a través de Internet puede garantizarse como 100% segura.
-      </p>
-      <h2>Cambios en nuestra política de privacidad</h2>
-      <p>
-        Nos reservamos el derecho a modificar esta política de privacidad en cualquier momento. Cualquier cambio será publicado en esta página.
-      </p>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <main className="pt-40 pb-32">
+        <div className="max-w-7xl mx-auto px-6 space-y-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-6"
+          >
+            <h1 className="text-6xl font-bold tracking-tight">
+              Política de Privacidad
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Tu privacidad es nuestra prioridad
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {sections.map((section, index) => {
+              const Icon = section.icon;
+              return (
+                <BlurFade key={section.title} delay={index * 0.1}>
+                  <div className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300">
+                    <Icon className="w-8 h-8 text-primary mb-4" />
+                    <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
+                    <p className="text-muted-foreground">{section.content}</p>
+                  </div>
+                </BlurFade>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };

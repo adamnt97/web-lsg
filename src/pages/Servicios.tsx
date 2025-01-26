@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Servicios = () => {
   useEffect(() => {
