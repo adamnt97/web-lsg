@@ -32,22 +32,22 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-8"> {/* Reducido de pt-16 a pt-8 */}
-        {/* Hero Section - Reduced size */}
-        <section className="relative overflow-hidden px-6 lg:px-8 py-8 sm:py-12"> {/* Ajustado padding */}
+      <main className="pt-4"> {/* Reduced from pt-8 to pt-4 to bring the banner closer to navigation */}
+        {/* Hero Section */}
+        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8"> {/* Reduced padding */}
           <div className="mx-auto max-w-5xl">
             <SplineSceneBasic />
           </div>
         </section>
 
-        {/* Typewriter Section - Reduced spacing */}
-        <section className="py-8 bg-background">
+        {/* Typewriter Section */}
+        <section className="py-6 bg-background"> {/* Reduced padding */}
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col items-center justify-center">
               <TypewriterEffectSmooth words={words} />
               <Link 
                 to="/contacto"
-                className="mt-6 px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-colors"
+                className="mt-4 px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
               >
                 Contáctanos
               </Link>
@@ -55,7 +55,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Services Section - Updated icons and justified text */}
+        {/* Services Section */}
         <section className="py-16 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
@@ -90,7 +90,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* FAQ Section - More compact */}
+        {/* FAQ Section - Updated answers */}
         <section className="py-16 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-2xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
@@ -98,15 +98,15 @@ const Index = () => {
               {[
                 {
                   question: "¿Qué servicios ofrecen?",
-                  answer: "Ofrecemos desarrollo de software personalizado, consultoría IT y servicios cloud.",
+                  answer: "En LSG ofrecemos una amplia variedad de servicios especializados, que incluyen consultoría empresarial, desarrollo de software a medida, soluciones para el sector retail, y proyectos enfocados en sostenibilidad e innovación.",
                 },
                 {
                   question: "¿Cómo empezar un proyecto?",
-                  answer: "Contáctanos para agendar una reunión inicial donde evaluaremos tus necesidades.",
+                  answer: "Para iniciar un proyecto con nosotros, simplemente contáctanos a través de nuestro formulario web o escríbenos un correo a info@lsgsoluciones.com. Nuestro equipo analizará tus necesidades y diseñará una propuesta personalizada.",
                 },
                 {
                   question: "¿Cuál es el tiempo de desarrollo?",
-                  answer: "Los tiempos varían según el proyecto, pero nos comprometemos con plazos realistas.",
+                  answer: "El tiempo de desarrollo depende del alcance y la complejidad del proyecto. Generalmente, proyectos pequeños pueden completarse en unas pocas semanas, mientras que proyectos más grandes requieren varios meses. Siempre trabajamos para cumplir los plazos acordados.",
                 },
               ].map((faq, index) => (
                 <div
@@ -135,16 +135,16 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA Section - Modernized design */}
-        <section className="py-16 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-3xl mx-6 mb-16">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">¿Listo para empezar?</h2>
-            <p className="text-white/90 mb-6 max-w-xl mx-auto text-sm sm:text-base">
+        {/* CTA Section - Reduced size */}
+        <section className="py-8 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-2xl mx-6 mb-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3">¿Listo para empezar?</h2>
+            <p className="text-white/90 mb-4 max-w-xl mx-auto text-sm">
               Transformemos juntos tu visión en realidad. Contáctanos hoy mismo.
             </p>
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary rounded-full font-semibold hover:bg-white/90 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-primary rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
             >
               Iniciar Proyecto
               <ArrowRight className="w-4 h-4" />
