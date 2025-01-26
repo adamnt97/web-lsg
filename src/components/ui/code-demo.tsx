@@ -14,9 +14,11 @@ export function SplineSceneBasic() {
       
       <div className="flex h-full">
         <div className="flex-1 p-8 relative z-10 flex flex-col justify-center items-center text-center">
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-            LSG
-          </h1>
+          <img 
+            src="/lovable-uploads/70da87e7-4a1b-4bb0-b1e2-0b621284dfc7.png"
+            alt="LSG Logo"
+            className="w-48 md:w-64 h-auto mb-4"
+          />
           <p className="mt-4 text-neutral-300 max-w-lg">
             Construyendo el futuro del retail. Fusionamos innovación en construcción y retail para crear espacios comerciales extraordinarios.
           </p>
