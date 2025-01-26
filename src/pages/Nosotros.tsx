@@ -33,12 +33,10 @@ const Nosotros = () => {
     },
   ];
 
-  // ... keep existing code (motion.div with title and description)
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-40 pb-32">
+      <main className="pt-24"> {/* Reducido de pt-40 a pt-24 */}
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

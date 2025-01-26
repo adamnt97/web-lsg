@@ -32,9 +32,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-8"> {/* Reducido de pt-16 a pt-8 */}
-        {/* Hero Section - Reduced size */}
-        <section className="relative overflow-hidden px-6 lg:px-8 py-8 sm:py-12"> {/* Ajustado padding */}
+      <main className="pt-24"> {/* Reducido de pt-8 a pt-24 para compensar la navegación fixed */}
+        {/* Hero Section */}
+        <section className="relative overflow-hidden px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <SplineSceneBasic />
           </div>
