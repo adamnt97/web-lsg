@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <>
       <div className="h-20 w-full">
-        {/* Updated positioning for better mobile layout */}
+        {/* Desktop logo */}
         <Link 
           to="/" 
           className="fixed top-4 left-6 z-50 md:z-[60] hidden md:block"
@@ -28,15 +28,15 @@ const Navigation = () => {
             className="h-10 w-auto"
           />
         </Link>
-        {/* Mobile logo with adjusted position */}
+        {/* Mobile logo - Adjusted positioning and size */}
         <Link 
           to="/" 
-          className="fixed top-2 left-4 z-50 block md:hidden"
+          className="fixed top-16 left-1/2 transform -translate-x-1/2 z-50 block md:hidden"
         >
           <img 
             src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
             alt="LSG Soluciones" 
-            className="h-8 w-auto" // Slightly smaller on mobile
+            className="h-12 w-auto" 
           />
         </Link>
         <TubelightNavbar items={menuItems} />
