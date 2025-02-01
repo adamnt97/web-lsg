@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
 import { useToast } from "@/components/ui/use-toast"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -14,33 +13,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Send } from "lucide-react"
 import { supabase } from "@/integrations/supabase/client"
 
 function FooterDemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(false)
   const [email, setEmail] = React.useState("")
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [acceptedPrivacy, setAcceptedPrivacy] = React.useState(false)
   const { toast } = useToast()
-
-  // Initialize dark mode from system preference
-  React.useEffect(() => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    setIsDarkMode(prefersDark)
-    if (prefersDark) {
-      document.documentElement.classList.add("dark")
-    }
-  }, [])
-
-  // Handle dark mode changes
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [isDarkMode])
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -89,7 +69,7 @@ function FooterDemo() {
   }
 
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
+    <footer className="relative border-t bg-background text-foreground">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
@@ -147,9 +127,6 @@ function FooterDemo() {
               <Link to="/servicios" className="block transition-colors hover:text-primary">
                 Servicios
               </Link>
-              <Link to="/proyectos" className="block transition-colors hover:text-primary">
-                Proyectos
-              </Link>
               <Link to="/contacto" className="block transition-colors hover:text-primary">
                 Contacto
               </Link>
@@ -206,18 +183,6 @@ function FooterDemo() {
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Sun className="h-4 w-4" />
-              <Switch
-                id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-              />
-              <Moon className="h-4 w-4" />
-              <Label htmlFor="dark-mode" className="sr-only">
-                Alternar modo oscuro
-              </Label>
             </div>
           </div>
         </div>
