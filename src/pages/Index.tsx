@@ -6,12 +6,7 @@ import { SplineSceneBasic } from "@/components/ui/code-demo";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Link } from "react-router-dom";
 
-interface IndexProps {
-  isDarkMode: boolean;
-  setIsDarkMode: (value: boolean) => void;
-}
-
-const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
+const Index = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   const words = [
@@ -29,28 +24,30 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
     },
     {
       text: "retail",
-      className: "text-primary dark:text-primary-dark",
+      className: "text-primary dark:text-primary",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background dark:bg-background-dark">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-4">
-        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8">
+      <main className="pt-4"> {/* Reduced from pt-8 to pt-4 to bring the banner closer to navigation */}
+        {/* Hero Section */}
+        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8"> {/* Reduced padding */}
           <div className="mx-auto max-w-5xl">
             <SplineSceneBasic />
           </div>
         </section>
 
-        <section className="py-6 bg-background dark:bg-background-dark">
+        {/* Typewriter Section */}
+        <section className="py-6 bg-background"> {/* Reduced padding */}
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col items-center justify-center">
               <TypewriterEffectSmooth words={words} />
               <Link 
                 to="/contacto"
-                className="mt-4 px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors dark:bg-primary-dark dark:hover:bg-primary-dark/90"
+                className="mt-4 px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
               >
                 Contáctanos
               </Link>
@@ -58,11 +55,10 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
           </div>
         </section>
 
-        <section className="py-16 bg-surface dark:bg-surface-dark px-6 lg:px-8">
+        {/* Services Section */}
+        <section className="py-16 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-4xl font-bold text-center mb-12 text-foreground dark:text-foreground-dark">
-              Nuestros Servicios
-            </h2>
+            <h2 className="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -83,26 +79,21 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="p-8 rounded-2xl bg-white/80 dark:bg-black/20 backdrop-blur-sm border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200 hover:shadow-lg"
+                  className="p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-lg"
                 >
-                  <feature.icon className="w-8 h-8 mb-4 text-primary dark:text-primary-dark" />
-                  <h3 className="text-xl font-semibold mb-2 text-foreground dark:text-foreground-dark">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-justify">
-                    {feature.description}
-                  </p>
+                  <feature.icon className="w-8 h-8 mb-4 text-primary" />
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 text-justify">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 px-6 lg:px-8 bg-background dark:bg-background-dark">
+        {/* FAQ Section - Updated answers */}
+        <section className="py-16 px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
-            <h2 className="text-2xl font-bold text-center mb-8 text-foreground dark:text-foreground-dark">
-              Preguntas Frecuentes
-            </h2>
+            <h2 className="text-2xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
             <div className="space-y-3">
               {[
                 {
@@ -120,15 +111,13 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
               ].map((faq, index) => (
                 <div
                   key={index}
-                  className="border border-border dark:border-border-dark rounded-lg overflow-hidden"
+                  className="border border-border rounded-lg overflow-hidden"
                 >
                   <button
-                    className="w-full px-4 py-3 text-left flex justify-between items-center hover:bg-background/50 dark:hover:bg-background-dark/50"
+                    className="w-full px-4 py-3 text-left flex justify-between items-center hover:bg-background/50"
                     onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
                   >
-                    <span className="font-medium text-sm text-foreground dark:text-foreground-dark">
-                      {faq.question}
-                    </span>
+                    <span className="font-medium text-sm">{faq.question}</span>
                     <ChevronDown
                       className={`w-4 h-4 transition-transform ${
                         activeAccordion === index ? "transform rotate-180" : ""
@@ -136,10 +125,8 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
                     />
                   </button>
                   {activeAccordion === index && (
-                    <div className="px-4 py-3 bg-background/50 dark:bg-background-dark/50">
-                      <p className="text-secondary dark:text-gray-400 text-sm">
-                        {faq.answer}
-                      </p>
+                    <div className="px-4 py-3 bg-background/50">
+                      <p className="text-secondary text-sm">{faq.answer}</p>
                     </div>
                   )}
                 </div>
@@ -148,7 +135,8 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
           </div>
         </section>
 
-        <section className="py-8 bg-gradient-to-br from-primary/90 to-primary dark:from-primary-dark/90 dark:to-primary-dark text-white px-6 lg:px-8 rounded-2xl mx-6 mb-16">
+        {/* CTA Section - Reduced size */}
+        <section className="py-8 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-2xl mx-6 mb-16">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-xl sm:text-2xl font-bold mb-3">¿Listo para empezar?</h2>
             <p className="text-white/90 mb-4 max-w-xl mx-auto text-sm">
@@ -156,7 +144,7 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
             </p>
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-primary dark:text-primary-dark rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-primary rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
             >
               Iniciar Proyecto
               <ArrowRight className="w-4 h-4" />
@@ -165,7 +153,7 @@ const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
         </section>
       </main>
 
-      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <Footer />
     </div>
   );
 };

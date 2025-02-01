@@ -1,135 +1,173 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Users2, Target, Lightbulb, Award } from "lucide-react";
+import { WorldMap } from "@/components/ui/WorldMap";
+import { motion } from "framer-motion";
+import { Building2, Laptop, Leaf, Rocket, Award, ShoppingCart } from "lucide-react";
+import { BlurFade } from "@/components/ui/blur-fade";
 
-interface NosotrosProps {
-  isDarkMode: boolean;
-  setIsDarkMode: (value: boolean) => void;
-}
+const Nosotros = () => {
+  const mapDots = [
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 40.7128, lng: -74.0060 }, // New York
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: -23.5505, lng: -46.6333 }, // São Paulo
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 35.6762, lng: 139.6503 }, // Tokyo
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+    },
+    {
+      start: { lat: 40.4168, lng: -3.7038 }, // Madrid
+      end: { lat: 51.5074, lng: -0.1278 }, // London
+    },
+  ];
 
-const Nosotros = ({ isDarkMode, setIsDarkMode }: NosotrosProps) => {
   return (
-    <div className="min-h-screen bg-background dark:bg-background-dark">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      
-      <main className="container mx-auto px-4 py-8">
-        <section className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4 text-foreground dark:text-foreground-dark">
-            Sobre Nosotros
-          </h1>
-          <p className="text-lg text-muted-foreground dark:text-muted-foreground-dark max-w-2xl mx-auto">
-            En LSG Soluciones, nos dedicamos a transformar ideas en soluciones innovadoras,
-            combinando experiencia técnica con creatividad para impulsar el éxito de nuestros clientes.
-          </p>
-        </section>
-
-        <section className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-foreground dark:text-foreground-dark">
-              Nuestra Historia
-            </h2>
-            <p className="text-muted-foreground dark:text-muted-foreground-dark">
-              Fundada en 2019, LSG Soluciones nació con la visión de revolucionar la forma en que las empresas
-              abordan sus desafíos tecnológicos y operativos. Desde entonces, hemos crecido hasta convertirnos
-              en un referente en soluciones innovadoras para retail y construcción.
+      {/* Reduced padding-top from pt-40 to pt-24 */}
+      <main className="pt-24 pb-32">
+        <div className="max-w-7xl mx-auto px-6 space-y-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-6"
+          >
+            <h1 className="text-6xl font-bold tracking-tight">
+              Reinventando el mercado
+              <span className="text-accent block mt-2">a través de la innovación</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              LSG Group dba. LSG Soluciones (LSG IBERIAN PARTNERS, S.L.) nació en 2019 con la visión de reinventar el mercado a través de la innovación.
             </p>
-            <p className="text-muted-foreground dark:text-muted-foreground-dark">
-              Nuestro compromiso con la excelencia y la innovación nos ha permitido establecer relaciones
-              duraderas con clientes en toda España, ofreciendo soluciones que marcan la diferencia en
-              sus operaciones diarias.
-            </p>
-            <Button variant="outline" className="mt-4">
-              Conoce más sobre nuestra trayectoria
-            </Button>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Card className="p-6">
-              <CardContent className="space-y-2">
-                <Users2 className="h-8 w-8 text-primary dark:text-primary-dark" />
-                <h3 className="font-semibold">Equipo Experto</h3>
-                <p className="text-sm text-muted-foreground dark:text-muted-foreground-dark">
-                  Profesionales altamente cualificados y comprometidos
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="p-6">
-              <CardContent className="space-y-2">
-                <Target className="h-8 w-8 text-primary dark:text-primary-dark" />
-                <h3 className="font-semibold">Enfoque Preciso</h3>
-                <p className="text-sm text-muted-foreground dark:text-muted-foreground-dark">
-                  Soluciones adaptadas a objetivos específicos
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="p-6">
-              <CardContent className="space-y-2">
-                <Lightbulb className="h-8 w-8 text-primary dark:text-primary-dark" />
-                <h3 className="font-semibold">Innovación</h3>
-                <p className="text-sm text-muted-foreground dark:text-muted-foreground-dark">
-                  Tecnologías de vanguardia y métodos innovadores
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="p-6">
-              <CardContent className="space-y-2">
-                <Award className="h-8 w-8 text-primary dark:text-primary-dark" />
-                <h3 className="font-semibold">Calidad</h3>
-                <p className="text-sm text-muted-foreground dark:text-muted-foreground-dark">
-                  Excelencia en cada proyecto que emprendemos
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+          </motion.div>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8 text-foreground dark:text-foreground-dark">
-            Nuestros Valores
-          </h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="h-[500px] bg-gradient-to-b from-background to-background/50 rounded-3xl p-8"
+          >
+            <WorldMap dots={mapDots} lineColor="#bb0000" />
+          </motion.div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-2 text-foreground dark:text-foreground-dark">
-                Integridad
-              </h3>
-              <p className="text-muted-foreground dark:text-muted-foreground-dark">
-                Actuamos con honestidad y transparencia en todas nuestras interacciones.
+            {[
+              {
+                title: "Retail",
+                icon: ShoppingCart,
+                description: "Transformamos espacios comerciales mediante soluciones tecnológicas innovadoras. Optimizamos la experiencia del cliente con sistemas inteligentes de gestión de flujos, análisis de datos en tiempo real y diseño centrado en el usuario. Nuestras soluciones mejoran la eficiencia operativa y aumentan la satisfacción del cliente, creando ambientes comerciales del futuro."
+              },
+              {
+                title: "Construcción especializada",
+                icon: Building2,
+                description: "Implementamos métodos constructivos de vanguardia que priorizan la sostenibilidad y la eficiencia. Utilizamos materiales innovadores y técnicas de construcción modernas para crear espacios que no solo son funcionales, sino también respetuosos con el medio ambiente y energéticamente eficientes. Nuestro enfoque integra tecnología avanzada en cada fase del proceso constructivo."
+              },
+              {
+                title: "Desarrollo de software",
+                icon: Laptop,
+                description: "Desarrollamos soluciones digitales personalizadas que permiten a las empresas tomar decisiones basadas en datos. Nuestras aplicaciones integran tecnologías emergentes como IA y machine learning para optimizar procesos y mejorar la experiencia del usuario final. Creamos software que impulsa la transformación digital y potencia el crecimiento empresarial."
+              }
+            ].map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex justify-center mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-center">{service.title}</h3>
+                  <p className="text-muted-foreground text-justify">{service.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl font-bold">Misión</h2>
+              <p className="text-muted-foreground text-justify">
+                Transformar el mercado con soluciones vanguardistas que integren tecnología, sostenibilidad y responsabilidad social en cada etapa del proceso.
               </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-2 text-foreground dark:text-foreground-dark">
-                Excelencia
-              </h3>
-              <p className="text-muted-foreground dark:text-muted-foreground-dark">
-                Buscamos la perfección en cada detalle de nuestro trabajo.
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl font-bold">Visión</h2>
+              <p className="text-muted-foreground text-justify">
+                Ser un referente global en la creación de proyectos revolucionarios, impulsando la convergencia entre retail, construcción y software.
               </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-2 text-foreground dark:text-foreground-dark">
-                Innovación
-              </h3>
-              <p className="text-muted-foreground dark:text-muted-foreground-dark">
-                Constantemente exploramos nuevas formas de resolver desafíos.
-              </p>
+            </motion.div>
+          </div>
+
+          <div className="space-y-8">
+            <h2 className="text-3xl font-bold text-center">Nuestros Valores</h2>
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Innovación",
+                  icon: Rocket,
+                  description: "Impulsamos la experimentación continua y el desarrollo de soluciones disruptivas que transforman la industria. Nuestro enfoque innovador nos permite anticiparnos a las necesidades del mercado y crear tendencias que definen el futuro del sector."
+                },
+                {
+                  title: "Sostenibilidad",
+                  icon: Leaf,
+                  description: "Comprometidos con el futuro, implementamos prácticas sostenibles en todos nuestros proyectos. Priorizamos materiales ecológicos y procesos que minimizan el impacto ambiental, contribuyendo a un desarrollo más sostenible y responsable."
+                },
+                {
+                  title: "Rapidez",
+                  icon: Rocket,
+                  description: "Nuestra metodología ágil nos permite responder con velocidad a los cambios del mercado. Optimizamos procesos para entregar soluciones eficientes en tiempo récord, manteniendo siempre los más altos estándares de calidad."
+                },
+                {
+                  title: "Calidad",
+                  icon: Award,
+                  description: "La excelencia es nuestro estándar. Cada proyecto se desarrolla con atención meticulosa al detalle, garantizando resultados superiores que superan las expectativas y establecen nuevos referentes en la industria."
+                }
+              ].map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <motion.div
+                    key={value.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="p-6 rounded-xl bg-surface border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="flex justify-center mb-3">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-3 text-center">{value.title}</h3>
+                    <p className="text-sm text-muted-foreground text-justify">{value.description}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
-        </section>
-
-        <section className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-foreground dark:text-foreground-dark">
-            ¿Listo para trabajar juntos?
-          </h2>
-          <p className="text-lg text-muted-foreground dark:text-muted-foreground-dark mb-6">
-            Descubre cómo podemos ayudarte a alcanzar tus objetivos empresariales.
-          </p>
-          <Button className="bg-primary hover:bg-primary/90 text-white">
-            Contáctanos
-          </Button>
-        </section>
+        </div>
       </main>
-
-      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <Footer />
     </div>
   );
 };

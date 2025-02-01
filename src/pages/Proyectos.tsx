@@ -1,17 +1,17 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-interface ProyectosProps {
-  isDarkMode: boolean;
-  setIsDarkMode: (value: boolean) => void;
-}
-
-const Proyectos = ({ isDarkMode, setIsDarkMode }: ProyectosProps) => {
+const Proyectos = () => {
   return (
-    <div className="min-h-screen bg-background dark:bg-background-dark">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      {/* Your existing Proyectos content */}
-      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <main className="pt-8"> {/* Reducido de pt-16 a pt-8 */}
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-4xl font-bold mb-8">Proyectos</h1>
+          {/* Contenido de la página */}
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };

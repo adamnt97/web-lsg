@@ -19,52 +19,19 @@ export default {
     },
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#990000",
-          dark: "#990000", // Keep primary color consistent in dark mode
-        },
-        secondary: {
-          DEFAULT: "#828179",
-          dark: "#828179",
-        },
-        accent: {
-          DEFAULT: "#990000",
-          dark: "#990000",
-        },
-        background: {
-          DEFAULT: "#FAFAF8",
-          dark: "#1a1a1a",
-        },
-        surface: {
-          DEFAULT: "#fff",
-          dark: "#2d2d2d",
-        },
-        muted: {
-          DEFAULT: "#C4C3BB",
-          dark: "#666666",
-        },
-        "muted-foreground": {
-          DEFAULT: "#A3A299",
-          dark: "#888888",
-        },
-        border: {
-          DEFAULT: "#E6E4DD",
-          dark: "#404040",
-        },
-        input: {
-          DEFAULT: "#F0EFEA",
-          dark: "#333333",
-        },
-        foreground: {
-          DEFAULT: "#1a1a1a",
-          dark: "#ffffff",
-        },
+        primary: "#990000", // Updated from #A93226
+        secondary: "#828179",
+        accent: "#990000", // Updated from #A93226
+        background: "#FAFAF8",
+        surface: "#fff",
+        muted: "#C4C3BB",
+        "muted-foreground": "#A3A299",
+        border: "#E6E4DD",
+        input: "#F0EFEA",
+        foreground: "hsl(var(--foreground))",
       },
       textColor: {
-        foreground: {
-          DEFAULT: "#1a1a1a",
-          dark: "#ffffff",
-        },
+        foreground: "hsl(var(--foreground))",
       },
       fontFamily: {
         sans: ["SF Pro Display", "system-ui", "sans-serif"],
