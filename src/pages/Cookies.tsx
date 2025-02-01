@@ -1,64 +1,58 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Cookie, Settings, Clock } from "lucide-react";
-import { motion } from "framer-motion";
-import { BlurFade } from "@/components/ui/blur-fade";
 
-const Cookies = () => {
-  const sections = [
-    {
-      icon: Cookie,
-      title: "Uso de Cookies",
-      content: "Explicamos cómo utilizamos las cookies para mejorar tu experiencia."
-    },
-    {
-      icon: Settings,
-      title: "Configuración",
-      content: "Te permitimos personalizar tus preferencias de cookies."
-    },
-    {
-      icon: Clock,
-      title: "Duración",
-      content: "Información sobre el tiempo de permanencia de las cookies."
-    }
-  ];
+interface CookiesProps {
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
+}
 
+const Cookies = ({ isDarkMode, setIsDarkMode }: CookiesProps) => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-background-dark">
       <Navigation />
-      <main className="pt-40 pb-32">
-        <div className="max-w-7xl mx-auto px-6 space-y-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6"
-          >
-            <h1 className="text-6xl font-bold tracking-tight">
-              Política de Cookies
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Transparencia en el uso de cookies
+      <main className="pt-4">
+        <section className="py-6 bg-background dark:bg-background-dark">
+          <div className="max-w-7xl mx-auto px-6">
+            <h1 className="text-3xl font-bold mb-4">Política de Cookies</h1>
+            <p className="mb-4">
+              Esta política de cookies explica qué son las cookies, cómo las utilizamos, cómo terceros con los que podemos asociarnos pueden utilizarlas en el servicio, sus opciones de control de cookies y más.
             </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {sections.map((section, index) => {
-              const Icon = section.icon;
-              return (
-                <BlurFade key={section.title} delay={index * 0.1}>
-                  <div className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300">
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
-                    <p className="text-muted-foreground">{section.content}</p>
-                  </div>
-                </BlurFade>
-              );
-            })}
+            <h2 className="text-2xl font-semibold mb-2">¿Qué son las cookies?</h2>
+            <p className="mb-4">
+              Las cookies son pequeños archivos de texto que se utilizan para almacenar información en los navegadores web. Se utilizan ampliamente para hacer que los sitios web funcionen, o para que lo hagan de manera más eficiente, así como para proporcionar información a los propietarios del sitio.
+            </p>
+            <h2 className="text-2xl font-semibold mb-2">¿Cómo utilizamos las cookies?</h2>
+            <p className="mb-4">
+              Cuando utilizas nuestro servicio, podemos colocar una serie de cookies en tu web browser. Utilizamos cookies para habilitar ciertas funciones del servicio, para proporcionar análisis, para almacenar tus preferencias y para proporcionar publicidad.
+            </p>
+            <h2 className="text-2xl font-semibold mb-2">Tus opciones de control de cookies</h2>
+            <p className="mb-4">
+              Si prefieres evitar el uso de cookies, debes primero desactivar el uso de cookies en tu navegador y luego eliminar las cookies guardadas en tu navegador asociadas a este sitio web. Puedes utilizar esta opción para prevenir el uso de cookies en cualquier momento.
+            </p>
+            <p className="mb-4">
+              Si deseas eliminar las cookies o indicar a tu navegador que las elimine o no las acepte, visita las páginas de ayuda de tu navegador:
+            </p>
+            <ul className="list-disc pl-5 mb-4">
+              <li>
+                <a href="https://support.google.com/accounts/answer/32050" target="_blank" rel="noopener noreferrer">Google Chrome</a>
+              </li>
+              <li>
+                <a href="https://support.mozilla.org/es/kb/Borrar%20cookies" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a>
+              </li>
+              <li>
+                <a href="https://support.microsoft.com/es-es/help/278835/how-to-delete-cookie-files-in-internet-explorer" target="_blank" rel="noopener noreferrer">Internet Explorer</a>
+              </li>
+              <li>
+                <a href="https://support.apple.com/es-es/HT201265" target="_blank" rel="noopener noreferrer">Safari</a>
+              </li>
+            </ul>
+            <p className="mb-4">
+              Ten en cuenta que si eliminas las cookies o no las aceptas, es posible que no puedas utilizar todas las funcionalidades que ofrecemos.
+            </p>
           </div>
-        </div>
+        </section>
       </main>
-      <Footer />
+      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     </div>
   );
 };

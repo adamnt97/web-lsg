@@ -1,64 +1,42 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Shield, Lock, Eye } from "lucide-react";
-import { motion } from "framer-motion";
-import { BlurFade } from "@/components/ui/blur-fade";
 
-const Privacy = () => {
-  const sections = [
-    {
-      icon: Shield,
-      title: "Protección de Datos",
-      content: "Nos comprometemos a proteger tu privacidad y datos personales siguiendo las normativas GDPR y LOPDGDD."
-    },
-    {
-      icon: Lock,
-      title: "Seguridad",
-      content: "Implementamos medidas de seguridad técnicas y organizativas para proteger tus datos."
-    },
-    {
-      icon: Eye,
-      title: "Transparencia",
-      content: "Mantenemos la transparencia sobre cómo recopilamos y utilizamos tus datos."
-    }
-  ];
+interface PrivacyProps {
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
+}
 
+const Privacy = ({ isDarkMode, setIsDarkMode }: PrivacyProps) => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-background-dark">
       <Navigation />
-      <main className="pt-40 pb-32">
-        <div className="max-w-7xl mx-auto px-6 space-y-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6"
-          >
-            <h1 className="text-6xl font-bold tracking-tight">
-              Política de Privacidad
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tu privacidad es nuestra prioridad
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {sections.map((section, index) => {
-              const Icon = section.icon;
-              return (
-                <BlurFade key={section.title} delay={index * 0.1}>
-                  <div className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300">
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
-                    <p className="text-muted-foreground">{section.content}</p>
-                  </div>
-                </BlurFade>
-              );
-            })}
-          </div>
-        </div>
+      <main className="py-8 px-6 lg:px-8">
+        <h1 className="text-3xl font-bold mb-4">Política de Privacidad</h1>
+        <p className="mb-4">
+          En LSG Soluciones, valoramos tu privacidad y nos comprometemos a proteger tus datos personales. Esta política de privacidad describe cómo recopilamos, usamos y compartimos tu información.
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 mb-2">Información que Recopilamos</h2>
+        <p className="mb-4">
+          Recopilamos información que nos proporcionas directamente, como tu nombre, dirección de correo electrónico y cualquier otra información que decidas compartir con nosotros.
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 mb-2">Uso de la Información</h2>
+        <p className="mb-4">
+          Utilizamos la información que recopilamos para proporcionarte nuestros servicios, comunicarnos contigo y mejorar nuestra oferta.
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 mb-2">Compartir Información</h2>
+        <p className="mb-4">
+          No compartimos tu información personal con terceros sin tu consentimiento, excepto cuando sea necesario para cumplir con la ley o proteger nuestros derechos.
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 mb-2">Tus Derechos</h2>
+        <p className="mb-4">
+          Tienes derecho a acceder, corregir o eliminar tu información personal. Si deseas ejercer estos derechos, contáctanos a través de la información proporcionada a continuación.
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 mb-2">Contacto</h2>
+        <p className="mb-4">
+          Si tienes preguntas sobre esta política de privacidad, contáctanos en info@lsgsoluciones.com.
+        </p>
       </main>
-      <Footer />
+      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     </div>
   );
 };

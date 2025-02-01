@@ -1,64 +1,52 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Scale, FileCheck, AlertCircle } from "lucide-react";
-import { motion } from "framer-motion";
-import { BlurFade } from "@/components/ui/blur-fade";
 
-const Terms = () => {
-  const sections = [
-    {
-      icon: Scale,
-      title: "Marco Legal",
-      content: "Estas condiciones establecen los términos legales para el uso de nuestros servicios."
-    },
-    {
-      icon: FileCheck,
-      title: "Responsabilidades",
-      content: "Detallamos las responsabilidades y obligaciones de todas las partes involucradas."
-    },
-    {
-      icon: AlertCircle,
-      title: "Limitaciones",
-      content: "Especificamos las limitaciones y restricciones aplicables a nuestros servicios."
-    }
-  ];
+interface TermsProps {
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
+}
 
+const Terms = ({ isDarkMode, setIsDarkMode }: TermsProps) => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-background-dark">
       <Navigation />
-      <main className="pt-40 pb-32">
-        <div className="max-w-7xl mx-auto px-6 space-y-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6"
-          >
-            <h1 className="text-6xl font-bold tracking-tight">
-              Términos y Condiciones
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Bases legales de nuestra relación
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {sections.map((section, index) => {
-              const Icon = section.icon;
-              return (
-                <BlurFade key={section.title} delay={index * 0.1}>
-                  <div className="p-8 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300">
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
-                    <p className="text-muted-foreground">{section.content}</p>
-                  </div>
-                </BlurFade>
-              );
-            })}
-          </div>
-        </div>
+      <main className="pt-4">
+        <section className="py-6 px-6 lg:px-8">
+          <h1 className="text-3xl font-bold mb-4">Términos de Servicio</h1>
+          <p className="mb-4">
+            Bienvenido a LSG Soluciones. Al utilizar nuestros servicios, aceptas cumplir con los siguientes términos y condiciones.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">1. Aceptación de los Términos</h2>
+          <p className="mb-4">
+            Al acceder y utilizar nuestros servicios, aceptas estar sujeto a estos términos. Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestros servicios.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">2. Modificaciones a los Términos</h2>
+          <p className="mb-4">
+            Nos reservamos el derecho de modificar estos términos en cualquier momento. Te notificaremos sobre cambios significativos a través de nuestro sitio web.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">3. Uso de los Servicios</h2>
+          <p className="mb-4">
+            Te comprometes a utilizar nuestros servicios de manera legal y de acuerdo con todas las leyes aplicables. No debes utilizar nuestros servicios para actividades ilegales o no autorizadas.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">4. Propiedad Intelectual</h2>
+          <p className="mb-4">
+            Todos los derechos de propiedad intelectual relacionados con nuestros servicios son propiedad de LSG Soluciones. No puedes reproducir, distribuir o modificar nuestro contenido sin nuestro consentimiento previo.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">5. Limitación de Responsabilidad</h2>
+          <p className="mb-4">
+            En la medida máxima permitida por la ley, LSG Soluciones no será responsable de ningún daño indirecto, incidental o consecuente que surja del uso de nuestros servicios.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">6. Ley Aplicable</h2>
+          <p className="mb-4">
+            Estos términos se regirán e interpretarán de acuerdo con las leyes del país en el que operamos.
+          </p>
+          <h2 className="text-2xl font-semibold mt-6">7. Contacto</h2>
+          <p className="mb-4">
+            Si tienes alguna pregunta sobre estos términos, no dudes en contactarnos a través de nuestro correo electrónico: info@lsgsoluciones.com.
+          </p>
+        </section>
       </main>
-      <Footer />
+      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     </div>
   );
 };
