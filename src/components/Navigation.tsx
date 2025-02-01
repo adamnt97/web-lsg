@@ -5,6 +5,9 @@ import { TubelightNavbar } from "./ui/tubelight-navbar";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const imgPath = import.meta.env.MODE === 'production' 
+    ? '/LSG/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png'
+    : '/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png';
 
   const menuItems = [
     { name: "Inicio", url: "/", icon: Home },
@@ -19,7 +22,7 @@ const Navigation = () => {
         {/* Logo for all screen sizes */}
         <Link to="/" className="flex-shrink-0">
           <img 
-            src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
+            src={imgPath}
             alt="LSG Soluciones" 
             className="h-8 w-auto md:h-10"
           />
