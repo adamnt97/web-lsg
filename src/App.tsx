@@ -13,14 +13,13 @@ import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
 
 const queryClient = new QueryClient();
-const basename = import.meta.env.MODE === 'production' ? '/LSG' : '/';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename={basename}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/nosotros" element={<Nosotros />} />
