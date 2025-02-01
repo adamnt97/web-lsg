@@ -16,31 +16,23 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="h-20 w-full">
-        {/* Desktop logo */}
-        <Link 
-          to="/" 
-          className="fixed top-4 left-6 z-50 md:z-[60] hidden md:block"
-        >
+      <div className="h-16 w-full flex items-center justify-between px-4 fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-lg z-50">
+        {/* Logo for all screen sizes */}
+        <Link to="/" className="flex-shrink-0">
           <img 
             src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
             alt="LSG Soluciones" 
-            className="h-10 w-auto"
+            className="h-8 w-auto md:h-10"
           />
         </Link>
-        {/* Mobile logo - Adjusted positioning and size */}
-        <Link 
-          to="/" 
-          className="fixed top-16 left-1/2 transform -translate-x-1/2 z-50 block md:hidden"
-        >
-          <img 
-            src="/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png" 
-            alt="LSG Soluciones" 
-            className="h-12 w-auto" 
-          />
-        </Link>
-        <TubelightNavbar items={menuItems} />
+        
+        {/* Navigation bar */}
+        <div className="flex-grow flex justify-center">
+          <TubelightNavbar items={menuItems} />
+        </div>
       </div>
+      {/* Spacer to prevent content from hiding under the fixed navbar */}
+      <div className="h-16 w-full"></div>
     </>
   );
 };
