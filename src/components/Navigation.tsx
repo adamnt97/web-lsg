@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Home, Users, Briefcase, FolderKanban, MessageSquare } from "lucide-react";
+import { Home, Users, Briefcase, MessageSquare } from "lucide-react";
 import { TubelightNavbar } from "./ui/tubelight-navbar";
 
 const Navigation = () => {
@@ -10,7 +10,6 @@ const Navigation = () => {
     { name: "Inicio", url: "/", icon: Home },
     { name: "Nosotros", url: "/nosotros", icon: Users },
     { name: "Servicios", url: "/servicios", icon: Briefcase },
-    { name: "Proyectos", url: "/proyectos", icon: FolderKanban },
     { name: "Contacto", url: "/contacto", icon: MessageSquare },
   ];
 
