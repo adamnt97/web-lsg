@@ -17,30 +17,16 @@ import {
 import { Facebook, Instagram, Linkedin, Moon, Send, Sun } from "lucide-react"
 import { supabase } from "@/integrations/supabase/client"
 
-function FooterDemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(false)
+interface FooterDemoProps {
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
+}
+
+function FooterDemo({ isDarkMode, setIsDarkMode }: FooterDemoProps) {
   const [email, setEmail] = React.useState("")
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [acceptedPrivacy, setAcceptedPrivacy] = React.useState(false)
   const { toast } = useToast()
-
-  // Initialize dark mode from system preference
-  React.useEffect(() => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    setIsDarkMode(prefersDark)
-    if (prefersDark) {
-      document.documentElement.classList.add("dark")
-    }
-  }, [])
-
-  // Handle dark mode changes
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [isDarkMode])
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()

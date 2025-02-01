@@ -6,7 +6,12 @@ import { SplineSceneBasic } from "@/components/ui/code-demo";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Link } from "react-router-dom";
 
-const Index = () => {
+interface IndexProps {
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
+}
+
+const Index = ({ isDarkMode, setIsDarkMode }: IndexProps) => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   const words = [
@@ -160,7 +165,7 @@ const Index = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     </div>
   );
 };
