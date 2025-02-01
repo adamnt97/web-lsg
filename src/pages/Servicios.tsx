@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Store, Code, Building2 } from "lucide-react";
 
 interface ServiciosProps {
   isDarkMode: boolean;
