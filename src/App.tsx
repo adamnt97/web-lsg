@@ -7,7 +7,6 @@ import CookieBanner from "./components/CookieBanner";
 import Index from "./pages/Index";
 import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
-import Proyectos from "./pages/Proyectos";
 import Contacto from "./pages/Contacto";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -25,7 +24,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/servicios" element={<Servicios />} />
-          <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />

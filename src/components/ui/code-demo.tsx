@@ -17,9 +17,9 @@ export function SplineSceneBasic() {
           <img 
             src="/lovable-uploads/c410f035-3ba4-46b5-a300-b582fa0109b9.png"
             alt="LSG Logo"
-            className="w-36 md:w-52 h-auto mb-4" // Reduced from w-40/w-56 to w-36/w-52
+            className="w-36 md:w-52 h-auto mb-4"
           />
-          <p className="mt-4 text-neutral-300 max-w-lg">
+          <p className="mt-4 text-neutral-300 max-w-lg text-justify">
             Construyendo el futuro del retail. Fusionamos innovación en construcción y retail para crear espacios comerciales extraordinarios.
           </p>
         </div>
