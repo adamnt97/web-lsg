@@ -57,8 +57,9 @@
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
   }
 
-  .dark body {
+  .dark {
     @apply bg-background-dark text-foreground-dark;
+    color-scheme: dark;
   }
 
   .glass {

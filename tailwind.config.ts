@@ -19,9 +19,18 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#990000",
-        secondary: "#828179",
-        accent: "#990000",
+        primary: {
+          DEFAULT: "#990000",
+          dark: "#990000", // Keep primary color consistent in dark mode
+        },
+        secondary: {
+          DEFAULT: "#828179",
+          dark: "#828179",
+        },
+        accent: {
+          DEFAULT: "#990000",
+          dark: "#990000",
+        },
         background: {
           DEFAULT: "#FAFAF8",
           dark: "#1a1a1a",
