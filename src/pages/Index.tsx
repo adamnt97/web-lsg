@@ -17,6 +17,9 @@ const Index = () => {
       text: "en",
     },
     {
+      text: "IA,",
+    },
+    {
       text: "construcción",
     },
     {
@@ -32,16 +35,15 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-4"> {/* Reduced from pt-8 to pt-4 to bring the banner closer to navigation */}
-        {/* Hero Section */}
-        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8"> {/* Reduced padding */}
+      <main className="pt-4">
+        <section className="relative overflow-hidden px-6 lg:px-8 py-6 sm:py-8">
           <div className="mx-auto max-w-5xl">
             <SplineSceneBasic />
           </div>
         </section>
 
         {/* Typewriter Section */}
-        <section className="py-6 bg-background"> {/* Reduced padding */}
+        <section className="py-6 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col items-center justify-center">
               <TypewriterEffectSmooth words={words} />
