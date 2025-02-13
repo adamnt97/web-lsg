@@ -1,111 +1,80 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Link } from "react-router-dom"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useToast } from "@/components/ui/use-toast"
-import { Checkbox } from "@/components/ui/checkbox"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Send } from "lucide-react"
-import { supabase } from "@/integrations/supabase/client"
-
+import * as React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Facebook, Instagram, Linkedin, Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 function FooterDemo() {
-  const [email, setEmail] = React.useState("")
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [acceptedPrivacy, setAcceptedPrivacy] = React.useState(false)
-  const { toast } = useToast()
-
+  const [email, setEmail] = React.useState("");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [acceptedPrivacy, setAcceptedPrivacy] = React.useState(false);
+  const {
+    toast
+  } = useToast();
   const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!email) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Por favor, ingresa un email válido",
-      })
-      return
+        description: "Por favor, ingresa un email válido"
+      });
+      return;
     }
-
     if (!acceptedPrivacy) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Debes aceptar la política de privacidad",
-      })
-      return
+        description: "Debes aceptar la política de privacidad"
+      });
+      return;
     }
-
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      const { error } = await supabase
-        .from('newsletter_subscriptions')
-        .insert({ email })
-
-      if (error) throw error
-
+      const {
+        error
+      } = await supabase.from('newsletter_subscriptions').insert({
+        email
+      });
+      if (error) throw error;
       toast({
         title: "¡Suscripción exitosa!",
-        description: "Gracias por suscribirte a nuestro newsletter.",
-      })
-      setEmail("")
-      setAcceptedPrivacy(false)
+        description: "Gracias por suscribirte a nuestro newsletter."
+      });
+      setEmail("");
+      setAcceptedPrivacy(false);
     } catch (error) {
-      console.error('Error:', error)
+      console.error('Error:', error);
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Hubo un error al procesar tu suscripción. Por favor, intenta nuevamente.",
-      })
+        description: "Hubo un error al procesar tu suscripción. Por favor, intenta nuevamente."
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
-
-  return (
-    <footer className="relative border-t bg-background text-foreground">
+  };
+  return <footer className="relative border-t bg-background text-foreground">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
             <h2 className="mb-4 text-3xl font-bold tracking-tight">Mantente Conectado</h2>
-            <p className="mb-6 text-muted-foreground">
-              Únete a nuestro boletín para recibir las últimas actualizaciones y ofertas exclusivas.
-            </p>
+            <p className="mb-6 text-muted-foreground">Únete a nuestro boletín para recibir las últimas actualizaciones del mundo IA.</p>
             <form className="relative space-y-4" onSubmit={handleSubscribe}>
-              <Input
-                type="email"
-                placeholder="Ingresa tu email"
-                className="pr-12 backdrop-blur-sm"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-              />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
-                disabled={isSubmitting}
-              >
+              <Input type="email" placeholder="Ingresa tu email" className="pr-12 backdrop-blur-sm" value={email} onChange={e => setEmail(e.target.value)} disabled={isSubmitting} />
+              <Button type="submit" size="icon" className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105" disabled={isSubmitting}>
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Suscribirse</span>
               </Button>
               <div className="flex items-center space-x-2 mt-2">
-                <Checkbox
-                  id="privacy"
-                  checked={acceptedPrivacy}
-                  onCheckedChange={(checked) => setAcceptedPrivacy(checked as boolean)}
-                  className="data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                />
-                <label
-                  htmlFor="privacy"
-                  className="text-sm text-muted-foreground"
-                >
+                <Checkbox id="privacy" checked={acceptedPrivacy} onCheckedChange={checked => setAcceptedPrivacy(checked as boolean)} className="data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" />
+                <label htmlFor="privacy" className="text-sm text-muted-foreground">
                   Acepto la{" "}
                   <Link to="/privacy" className="text-primary hover:underline">
                     política de privacidad
@@ -203,8 +172,6 @@ function FooterDemo() {
           </nav>
         </div>
       </div>
-    </footer>
-  )
+    </footer>;
 }
-
-export { FooterDemo }
+export { FooterDemo };
