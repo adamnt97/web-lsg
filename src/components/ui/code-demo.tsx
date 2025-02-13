@@ -1,3 +1,4 @@
+
 'use client';
 
 import { SplineScene } from "@/components/ui/splite";
@@ -10,7 +11,7 @@ export function SplineSceneBasic() {
       <div className="flex h-full">
         <div className="flex-1 p-8 relative z-10 flex flex-col justify-center items-center text-center">
           <img src="/lovable-uploads/c410f035-3ba4-46b5-a300-b582fa0109b9.png" alt="LSG Logo" className="w-36 md:w-52 h-auto mb-4" />
-          <p className="mt-4 text-neutral-300 max-w-lg text-center font-bold text-xs">Innovamos. Construimos. Transformamos. Desde software e inteligencia artificial hasta estructuras que dejan huella, creamos el futuro con cada proyecto.</p>
+          <p className="mt-4 text-neutral-300 max-w-lg text-center font-bold text-xs">Innovación en IA, construcción y retail.</p>
         </div>
 
         <div className="flex-1 relative">
