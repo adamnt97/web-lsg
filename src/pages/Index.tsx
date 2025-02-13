@@ -85,7 +85,7 @@ const Index = () => {
               answer: "El tiempo de desarrollo depende del alcance y la complejidad del proyecto. Generalmente, proyectos pequeños pueden completarse en unas pocas semanas, mientras que proyectos más grandes requieren varios meses. Siempre trabajamos para cumplir los plazos acordados."
             }].map((faq, index) => <div key={index} className="border border-border rounded-lg overflow-hidden">
                   <button className="w-full px-4 py-3 text-left flex justify-between items-center hover:bg-background/50" onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}>
-                    <span className="font-medium text-sm">{faq.question}</span>
+                    <span className="text-sm px-0 font-extralight">{faq.question}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${activeAccordion === index ? "transform rotate-180" : ""}`} />
                   </button>
                   {activeAccordion === index && <div className="px-4 py-3 bg-background/50">
