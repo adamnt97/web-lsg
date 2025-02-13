@@ -99,7 +99,7 @@ const Index = () => {
         {/* CTA Section - Reduced size */}
         <section className="py-8 bg-gradient-to-br from-primary/90 to-primary text-white px-6 lg:px-8 rounded-2xl mx-6 mb-16">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3">¿Listo para empezar?</h2>
+            <h2 className="text-xl sm:text-2xl mb-3 font-extrabold">¿Listo para empezar?</h2>
             <p className="text-white/90 mb-4 max-w-xl mx-auto text-sm">
               Transformemos juntos tu visión en realidad. Contáctanos hoy mismo.
             </p>
