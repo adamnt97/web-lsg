@@ -5,9 +5,8 @@ import { TubelightNavbar } from "./ui/tubelight-navbar";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const imgPath = import.meta.env.MODE === 'production' 
-    ? '/LSG/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png'
-    : '/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png';
+  // Simplificamos la ruta del logo para que funcione tanto en desarrollo como en producción
+  const imgPath = '/lovable-uploads/6720ed45-dea9-4b52-bb22-e7d3fb7e35ba.png';
 
   const menuItems = [
     { name: "Inicio", url: "/", icon: Home },
